@@ -1,0 +1,501 @@
+student_id,age,gender,year_of_study,major_category,residence_type,chronotype,avg_bedtime_hour,avg_sleep_hours_weekday,weekend_sleep_delta_hours,pre_sleep_screen_time_min,daily_screen_time_hours,primary_device,device_free_before_bed,caffeine_drinks_per_day,naps_per_week,sleep_quality_score,exercise_days_per_week,energy_level,concentration_difficulty,weekly_study_hours,class_attendance_percent,has_part_time_job,semester_type,cgpa
+STU2001,21,Male,3,Humanities,With Family,Early Bird,22.3,7.6,2.0,12,7.1,Tablet,No,2,0,10.0,7,5.0,7.0,15.6,80.0,No,Spring,2.99
+STU2002,20,Female,2,STEM,Dormitory,Intermediate,23.1,5.9,2.7,49,5.7,Laptop,Yes,1,3,7.0,3,6.0,7.0,17.5,78.9,No,Summer,2.88
+STU2003,20,Male,4,Social Sciences,With Family,Intermediate,23.4,8.4,1.8,22,2.3,Smartphone,No,2,1,9.0,2,5.0,1.0,19.0,69.7,Yes,Spring,3.15
+STU2004,22,F,1,Humanities,Off-campus Apartment,Night Owl,0.9,5.1,2.4,32,4.8,Laptop,No,1,3,6.0,4,3.0,7.0,7.3,59.1,No,Fall,2.27
+STU2005,23,Female,4,Social Sciences,Off-campus Apartment,Early Bird,23.4,5.9,2.0,27,4.5,Smartphone,No,4,2,7.0,6,8.0,3.0,23.6,79.9,No,Summer,2.74
+STU2006,19,Female,3,Health Sciences,Dormitory,Intermediate,0.6,9.0,1.2,90,4.3,Smartphone,Yes,1,0,8.0,2,7.0,3.0,17.0,100.0,No,Spring,2.88
+STU2007,19,Female,2,Social Sciences,With Family,Intermediate,22.4,5.7,3.7,25,4.0,Smartphone,,3,1,6.0,1,5.0,8.0,9.9,60.4,Yes,Summer,2.6
+STU2008,21,Female,3,Humanities,Off-campus Apartment,Night Owl,1.5,4.0,3.8,28,9.1,Smartphone,No,1,3,6.0,2,5.0,10.0,14.5,69.5,No,Spring,2.62
+STU2009,17,Female,3,Social Sciences,Off-campus Apartment,Early Bird,21.4,7.6,0.9,16,7.6,Laptop,No,2,1,9.0,1,10.0,8.0,16.1,85.2,Yes,Spring,
+STU2010,17,Male,4,STEM,Dormitory,Intermediate,23.5,5.6,1.0,28,5.5,Laptop,No,2,2,10.0,6,8.0,4.0,15.6,80.1,Yes,Fall,2.85
+STU2011,21,Female,2,STEM,Dormitory,Early Bird,22.1,8.1,1.2,34,6.4,Smartphone,No,3,0,10.0,1,4.0,7.0,17.9,74.1,No,Fall,3.13
+STU2012,17,Female,5,Arts,Homestay,Intermediate,23.4,6.7,1.6,33,8.7,Laptop,No,1,1,7.0,6,,,18.4,100.0,No,Spring,2.84
+STU2013,18,Female,2,Arts,With Family,Night Owl,3.0,6.2,1.4,76,6.3,Smartphone,Yes,1,0,7.0,4,9.0,7.0,22.7,87.4,Yes,Spring,2.51
+STU2014,18,male,1,Health Sciences,With Family,Intermediate,22.4,6.1,2.7,44,7.1,Tablet,,2,4,5.0,6,4.0,7.0,16.6,87.6,Yes,Fall,3.07
+STU2015,21,Male,2,Business,Dormitory,Early Bird,21.6,7.5,0.6,40,4.2,Smartphone,No,2,3,10.0,7,6.0,7.0,26.8,76.4,Yes,Summer,2.75
+STU2016,17,Male,2,Business,With Family,Intermediate,23.8,6.3,2.2,46,6.1,Smartphone,Yes,0,1,6.0,3,5.0,6.0,17.0,89.1,Yes,Summer,2.74
+STU2017,22,Male,4,Humanities,Dormitory,Intermediate,23.4,7.0,2.6,58,5.8,Smartphone,Yes,0,2,7.0,3,8.0,8.0,12.3,77.4,No,Spring,2.45
+STU2018,18,Female,1,Arts,With Family,Early Bird,21.6,6.9,1.2,27,6.3,Smartphone,No,0,1,7.0,0,7.0,5.0,12.9,94.8,No,Fall,2.92
+STU2019,25,Prefer not to say,1,STEM,Dormitory,Night Owl,1.6,4.5,0.3,23,3.4,Laptop,No,0,2,5.0,2,6.0,5.0,15.2,75.9,No,Spring,2.88
+STU2020,20,Male,3,Health Sciences,With Family,Intermediate,23.5,5.9,1.0,46,7.2,Laptop,Yes,1,1,6.0,2,2.0,3.0,4.9,73.6,Yes,Spring,2.94
+STU2021,19,Male,1,Business,Homestay,Intermediate,0.2,5.1,2.1,33,5.6,Laptop,Yes,1,1,7.0,7,5.0,9.0,10.1,90.9,No,Fall,2.57
+STU2022,21,Prefer not to say,1,Business,Dormitory,Early Bird,21.2,8.2,2.1,16,0.8,Laptop,No,0,0,9.0,3,7.0,,17.7,82.5,No,Fall,2.78
+STU2023,22,M,5,Business,With Family,Intermediate,22.9,5.7,1.0,16,5.4,Smartphone,No,2,1,7.0,4,5.0,6.0,19.8,58.7,No,Summer,2.51
+STU2024,17,M,5,Business,With Family,Intermediate,23.4,5.6,3.6,51,3.6,Laptop,No,4,3,4.0,4,5.0,2.0,16.9,84.5,No,Summer,2.8
+STU2025,23,Female,3,Humanities,With Family,Intermediate,0.3,5.7,0.5,42,6.7,Smartphone,No,3,1,5.0,3,4.0,5.0,12.5,81.2,No,Fall,3.01
+STU2026,17,Female,3,Humanities,Dormitory,Night Owl,1.1,4.2,2.7,71,3.1,Smartphone,Yes,3,3,1.0,2,4.0,9.0,16.4,92.9,No,Fall,2.22
+STU2027,21,Female,3,Health Sciences,Dormitory,Night Owl,0.4,5.2,0.4,56,2.7,Tablet,No,4,1,6.0,1,5.0,5.0,21.3,78.3,No,Spring,3.04
+STU2028,23,Female,3,Humanities,With Family,Intermediate,1.3,6.3,1.9,30,5.2,Smartphone,Yes,0,1,7.0,5,6.0,7.0,11.5,68.4,Yes,Spring,2.65
+STU2029,20,Male,1,Social Sciences,Dormitory,Night Owl,1.3,6.5,1.5,35,5.3,Smartphone,No,1,3,9.0,4,6.0,6.0,10.0,97.0,No,Fall,2.58
+STU2030,21,Female,1,STEM,Dormitory,Intermediate,0.6,5.0,2.9,0,7.8,Smartphone,No,2,2,7.0,1,3.0,10.0,13.9,70.5,No,Fall,3.15
+STU2031,18,Female,2,Humanities,Off-campus Apartment,Early Bird,23.2,7.9,1.2,1,4.3,Smartphone,No,3,2,10.0,5,6.0,,17.5,67.2,Yes,Fall,3.5
+STU2032,20,Male,3,Arts,Off-campus Apartment,Intermediate,22.3,7.4,-0.3,45,5.6,Smartphone,No,1,1,7.0,7,9.0,7.0,19.0,86.7,No,Fall,2.88
+STU2033,20,M,3,STEM,With Family,Night Owl,1.6,5.1,2.2,63,3.8,Smartphone,Yes,1,3,3.0,5,1.0,6.0,17.6,89.4,No,Fall,3.05
+STU2034,20,male,4,Humanities,Dormitory,Early Bird,0.3,7.6,1.1,43,6.1,Laptop,Yes,1,1,10.0,6,6.0,5.0,14.5,93.9,No,Fall,3.08
+STU2035,21,Female,2,Law,Dormitory,Early Bird,22.0,8.4,0.6,6,4.3,Laptop,No,0,0,9.0,0,7.0,3.0,5.7,62.7,No,Summer,2.79
+STU2036,21,Non-binary,1,Law,Homestay,Early Bird,22.2,5.1,1.2,2,4.3,Smartphone,No,1,2,6.0,7,5.0,5.0,7.1,79.6,Yes,Fall,3.0
+STU2037,25,Female,5,STEM,Dormitory,Intermediate,0.3,6.1,2.7,56,8.8,Smartphone,Yes,1,1,5.0,0,5.0,7.0,15.3,100.0,No,Fall,2.73
+STU2038,20,male,1,Business,Homestay,Early Bird,22.5,8.5,1.1,32,7.5,Laptop,Yes,2,1,6.0,7,8.0,5.0,0.0,64.6,No,Fall,2.26
+STU2039,23,Female,4,Health Sciences,With Family,Intermediate,22.6,6.7,0.3,37,5.3,Smartphone,No,0,1,8.0,6,4.0,7.0,21.7,68.6,No,Summer,2.86
+STU2040,21,Male,4,Business,Dormitory,Intermediate,22.2,7.2,0.9,33,7.5,Laptop,No,2,1,9.0,7,6.0,4.0,17.3,90.8,No,Fall,2.9
+STU2041,20,Male,1,Social Sciences,Off-campus Apartment,Intermediate,1.3,6.2,0.7,8,3.4,Smartphone,No,0,1,9.0,2,2.0,4.0,19.4,86.6,No,Fall,2.41
+STU2042,20,Male,1,Law,Off-campus Apartment,Intermediate,23.7,7.9,1.9,28,7.0,Smartphone,No,1,1,8.0,2,5.0,5.0,11.1,90.3,Yes,Fall,2.62
+STU2043,21,Female,3,Business,Dormitory,Intermediate,0.2,6.6,1.1,64,8.3,Smartphone,Yes,0,0,6.0,3,4.0,5.0,14.6,78.1,No,Fall,2.33
+STU2044,21,Male,1,Health Sciences,With Family,Intermediate,0.2,6.9,1.1,40,3.0,Smartphone,No,1,1,8.0,3,8.0,7.0,18.3,72.7,No,Fall,3.07
+STU2045,23,Female,3,Business,Dormitory,Intermediate,22.2,5.9,2.5,61,9.0,Smartphone,No,3,1,5.0,2,4.0,6.0,17.3,76.4,Yes,Spring,2.65
+STU2046,24,Male,2,STEM,With Family,Intermediate,1.2,6.6,1.6,61,6.1,Laptop,No,2,1,6.0,1,5.0,7.0,20.0,84.9,No,Spring,3.15
+STU2047,22,male,1,Social Sciences,Off-campus Apartment,Night Owl,22.8,3.8,2.0,32,5.2,Laptop,No,5,0,2.0,2,1.0,5.0,9.7,67.2,Yes,Summer,2.33
+STU2048,21,Male,1,Health Sciences,Off-campus Apartment,Early Bird,22.3,8.0,1.0,29,8.8,Smartphone,Yes,2,0,10.0,2,5.0,3.0,7.6,100.0,Yes,Fall,2.9
+STU2049,20,Male,5,Business,Dormitory,Early Bird,23.4,7.1,0.7,20,0.5,Smartphone,No,0,0,6.0,3,7.0,5.0,21.9,97.4,No,Fall,2.73
+STU2050,22,Female,3,Health Sciences,With Family,Early Bird,22.7,7.9,1.1,12,6.7,Tablet,No,0,0,10.0,7,9.0,5.0,26.3,78.2,No,Spring,3.13
+STU2051,20,Male,2,Business,Off-campus Apartment,Night Owl,0.7,6.6,3.1,57,5.0,Laptop,No,2,2,6.0,7,8.0,4.0,20.2,97.6,No,Spring,3.01
+STU2052,20,M,4,Social Sciences,Off-campus Apartment,Early Bird,20.8,8.4,1.2,23,3.0,Laptop,Yes,2,0,9.0,0,8.0,1.0,6.8,88.0,No,Summer,2.72
+STU2053,18,Non-binary,5,Business,Dormitory,Intermediate,21.0,5.7,-0.7,60,5.3,Smartphone,No,0,3,9.0,0,4.0,5.0,9.9,91.7,No,Spring,2.81
+STU2054,21,Female,3,Health Sciences,Dormitory,Early Bird,21.6,8.5,1.3,25,9.4,Smartphone,No,0,2,9.0,3,5.0,9.0,17.0,80.0,No,Fall,3.17
+STU2055,22,Male,5,STEM,With Family,Intermediate,1.5,7.3,0.8,31,4.9,Smartphone,No,1,0,6.0,2,9.0,7.0,21.3,68.5,Yes,Fall,3.12
+STU2056,22,Female,4,Arts,Dormitory,Intermediate,0.0,8.4,-1.0,60,5.4,Laptop,Yes,1,1,7.0,6,9.0,3.0,12.4,77.5,No,Spring,2.95
+STU2057,24,Male,2,Health Sciences,With Family,Intermediate,23.5,6.3,2.2,28,6.2,Smartphone,No,2,4,6.0,3,5.0,5.0,21.6,78.4,No,Fall,2.99
+STU2058,21,Female,1,Business,Dormitory,Intermediate,22.7,5.8,2.0,9,5.3,Smartphone,No,3,1,6.0,5,9.0,8.0,14.7,79.6,Yes,Summer,2.63
+STU2059,20,Male,5,Social Sciences,With Family,Night Owl,1.4,7.9,2.0,66,4.6,Laptop,No,1,2,6.0,4,7.0,1.0,19.9,97.4,No,Summer,2.93
+STU2060,25,Female,1,STEM,Dormitory,Night Owl,1.6,6.6,2.3,40,3.1,Laptop,No,0,0,7.0,7,5.0,2.0,13.4,67.5,Yes,Summer,
+STU2061,22,Female,3,Humanities,Dormitory,Night Owl,1.8,2.9,4.4,57,6.2,Smartphone,No,1,2,3.0,0,2.0,3.0,14.6,44.5,No,Spring,2.24
+STU2062,19,M,2,STEM,Dormitory,Night Owl,1.6,6.9,3.2,32,3.8,Smartphone,Yes,5,1,9.0,3,6.0,5.0,6.8,68.6,No,Fall,2.35
+STU2063,19,Male,3,Humanities,With Family,Early Bird,22.5,7.2,0.6,24,3.3,Smartphone,No,0,0,7.0,4,6.0,5.0,9.0,82.6,No,Spring,2.78
+STU2064,18,Female,4,Health Sciences,Homestay,Early Bird,23.1,6.9,-0.0,21,0.9,Smartphone,No,0,0,8.0,0,5.0,4.0,12.6,79.2,No,Spring,2.99
+STU2065,21,Female,2,Social Sciences,With Family,Early Bird,22.3,9.0,1.0,28,5.2,Smartphone,Yes,1,0,10.0,2,4.0,4.0,19.6,100.0,No,Fall,3.03
+STU2066,20,Female,3,STEM,With Family,Intermediate,0.1,8.0,0.4,16,5.9,Laptop,No,0,3,10.0,6,2.0,5.0,8.0,90.8,No,Fall,2.58
+STU2067,20,Male,3,Business,With Family,Intermediate,23.3,6.5,1.9,10,2.0,Smartphone,No,3,3,8.0,4,3.0,4.0,15.3,77.3,Yes,Spring,2.96
+STU2068,17,male,2,Social Sciences,With Family,Early Bird,22.1,8.8,1.4,14,4.5,Smartphone,No,0,2,9.0,4,8.0,3.0,13.8,72.5,No,Spring,3.59
+STU2069,21,Female,5,Social Sciences,Off-campus Apartment,Intermediate,23.2,7.1,1.2,56,4.8,Laptop,Yes,1,0,6.0,1,4.0,6.0,16.0,88.6,No,Spring,2.47
+STU2070,24,M,1,STEM,With Family,Night Owl,1.2,5.6,0.5,53,4.9,Laptop,Yes,1,1,6.0,0,3.0,7.0,24.7,82.5,Yes,Spring,2.69
+STU2071,21,Female,2,STEM,With Family,Intermediate,0.9,7.5,3.3,69,4.0,Smartphone,No,0,2,6.0,6,5.0,9.0,10.0,93.3,No,Spring,2.68
+STU2072,18,F,3,Health Sciences,With Family,Night Owl,2.8,6.7,-0.7,60,4.0,Laptop,No,1,2,8.0,3,5.0,1.0,18.0,83.2,Yes,Spring,2.88
+STU2073,20,Female,5,STEM,Off-campus Apartment,Night Owl,1.4,3.1,2.6,68,6.2,Laptop,No,3,5,2.0,5,2.0,9.0,25.5,75.1,No,Fall,2.78
+STU2074,18,male,5,Humanities,Dormitory,Night Owl,1.4,5.9,3.1,52,4.1,Laptop,No,1,1,5.0,7,5.0,6.0,19.8,64.0,Yes,Spring,2.55
+STU2075,20,Male,1,STEM,Off-campus Apartment,Early Bird,21.3,8.3,2.3,9,7.5,Laptop,No,1,0,10.0,2,6.0,2.0,19.3,78.3,Yes,Fall,2.84
+STU2076,22,Male,5,Business,Dormitory,Early Bird,22.7,5.6,0.9,25,6.1,Smartphone,Yes,2,2,6.0,3,4.0,4.0,9.0,81.3,Yes,Spring,2.47
+STU2077,22,Male,1,Arts,Homestay,Early Bird,23.0,6.8,2.0,28,0.5,Laptop,No,2,1,,5,6.0,2.0,7.4,93.4,No,Summer,2.53
+STU2078,22,Female,5,STEM,Off-campus Apartment,Intermediate,1.5,6.8,0.9,17,4.0,Laptop,No,1,2,6.0,1,10.0,5.0,14.3,69.8,No,Fall,2.8
+STU2079,19,Male,3,Humanities,Off-campus Apartment,Intermediate,23.9,6.1,1.5,33,4.3,Laptop,Yes,0,1,7.0,5,9.0,3.0,16.1,80.0,No,Fall,3.02
+STU2080,21,female,3,Business,Off-campus Apartment,Intermediate,22.8,6.5,0.9,42,4.2,Smartphone,Yes,0,2,9.0,1,6.0,4.0,20.3,83.6,No,Spring,3.56
+STU2081,19,Non-binary,3,STEM,Dormitory,Intermediate,1.0,7.5,2.9,15,6.9,Smartphone,No,0,0,10.0,7,7.0,5.0,12.1,90.1,No,Spring,2.8
+STU2082,20,Female,4,Business,Dormitory,Intermediate,1.1,6.3,1.3,50,6.1,Smartphone,No,0,1,6.0,6,9.0,4.0,22.9,87.1,Yes,Spring,2.54
+STU2083,22,Female,2,Arts,Dormitory,Early Bird,0.9,8.0,0.7,29,2.1,Smartphone,Yes,3,0,9.0,6,7.0,3.0,24.4,82.5,Yes,Fall,3.02
+STU2084,17,Male,2,STEM,Dormitory,Early Bird,20.7,6.7,1.8,27,3.4,Smartphone,No,4,1,8.0,2,6.0,6.0,18.5,88.0,No,Fall,3.19
+STU2085,17,M,5,Humanities,Dormitory,Intermediate,23.1,8.3,0.3,19,6.0,Smartphone,No,1,1,10.0,6,8.0,5.0,18.9,87.9,No,Spring,3.17
+STU2086,20,female,2,STEM,Dormitory,Night Owl,1.4,8.6,1.2,50,4.3,Smartphone,Yes,0,1,10.0,4,10.0,4.0,16.5,82.9,No,Spring,2.92
+STU2087,18,Female,5,STEM,Off-campus Apartment,Early Bird,21.6,7.8,1.5,29,4.1,Laptop,No,2,0,10.0,2,3.0,3.0,27.1,100.0,No,Fall,3.14
+STU2088,18,Male,4,STEM,With Family,Early Bird,23.1,7.2,1.5,47,2.1,Laptop,Yes,3,0,10.0,3,4.0,4.0,24.6,69.4,No,Fall,3.15
+STU2089,20,Female,4,Business,Dormitory,Night Owl,1.9,7.0,1.0,52,6.8,Laptop,No,0,1,9.0,6,6.0,5.0,11.7,81.8,Yes,Fall,2.7
+STU2090,20,F,5,Social Sciences,With Family,Intermediate,0.3,9.2,1.2,43,3.7,Smartphone,No,1,0,9.0,4,,5.0,19.4,77.2,No,Spring,2.89
+STU2091,22,Male,2,STEM,With Family,Early Bird,21.7,7.5,-0.9,30,7.8,Smartphone,No,1,1,9.0,4,7.0,7.0,15.5,80.3,Yes,Spring,3.13
+STU2092,17,Prefer not to say,4,STEM,Dormitory,Night Owl,22.2,3.9,1.8,99,2.4,Smartphone,No,3,4,1.0,7,4.0,8.0,26.9,84.4,Yes,Fall,2.86
+STU2093,19,Female,1,STEM,Dormitory,Intermediate,0.1,6.3,1.6,73,8.7,Smartphone,No,0,1,8.0,0,7.0,10.0,15.4,75.8,No,Spring,2.77
+STU2094,23,male,4,STEM,Dormitory,Early Bird,22.8,8.6,-0.5,11,6.0,Laptop,No,0,0,10.0,2,9.0,7.0,22.5,99.3,No,Spring,3.22
+STU2095,20,Female,3,Law,Dormitory,Early Bird,23.2,8.2,1.2,22,3.2,Smartphone,No,0,1,10.0,4,8.0,8.0,12.6,81.3,No,Spring,3.42
+STU2096,19,M,1,Arts,Dormitory,Early Bird,22.3,5.2,1.3,28,5.8,Laptop,Yes,4,4,6.0,0,5.0,4.0,19.5,53.4,No,Fall,2.33
+STU2097,20,male,3,Health Sciences,Off-campus Apartment,Intermediate,22.7,5.0,1.7,43,1.1,Laptop,No,1,2,7.0,3,1.0,2.0,16.3,82.0,No,Spring,2.72
+STU2098,19,Male,4,STEM,Dormitory,Intermediate,22.0,7.9,1.2,20,5.1,Smartphone,No,1,2,10.0,1,5.0,6.0,18.5,90.8,No,Fall,3.35
+STU2099,20,Male,4,Law,With Family,Early Bird,21.9,7.2,2.2,23,4.4,Smartphone,No,0,0,7.0,2,5.0,4.0,11.5,73.8,Yes,Summer,
+STU2100,20,male,2,STEM,With Family,Intermediate,21.5,7.0,1.1,52,9.6,Laptop,No,2,0,7.0,7,6.0,7.0,18.5,97.0,No,Spring,2.79
+STU2101,19,Male,3,Business,Off-campus Apartment,Intermediate,0.3,7.1,1.8,56,8.4,Smartphone,No,2,1,6.0,5,5.0,6.0,19.9,82.1,No,Spring,3.25
+STU2102,17,Female,2,Humanities,Dormitory,Intermediate,1.5,7.6,0.9,37,7.9,Smartphone,No,0,1,9.0,5,5.0,2.0,13.5,95.9,No,Spring,3.18
+STU2103,21,F,3,Social Sciences,Off-campus Apartment,Intermediate,1.5,4.9,0.5,47,5.7,Smartphone,No,3,1,7.0,4,,8.0,17.2,89.0,No,Fall,2.54
+STU2104,21,Male,2,STEM,Dormitory,Early Bird,22.5,8.0,0.2,12,8.1,Smartphone,No,1,2,10.0,2,7.0,6.0,15.0,100.0,Yes,Summer,2.9
+STU2105,21,Female,5,Social Sciences,Off-campus Apartment,Intermediate,0.8,6.2,1.6,63,6.4,Smartphone,No,1,2,5.0,3,2.0,4.0,14.4,73.7,No,Spring,2.66
+STU2106,19,F,4,Business,With Family,Intermediate,23.5,8.3,0.3,64,6.0,Smartphone,No,2,3,10.0,5,6.0,5.0,16.2,92.5,Yes,Spring,3.08
+STU2107,18,Female,3,Arts,Dormitory,Early Bird,21.6,5.7,1.0,37,5.7,Laptop,No,1,3,6.0,3,5.0,5.0,14.4,78.3,No,Summer,2.67
+STU2108,22,Female,1,STEM,Off-campus Apartment,Early Bird,23.1,5.8,2.9,27,5.2,Laptop,No,2,1,7.0,2,4.0,5.0,4.2,61.3,Yes,Spring,2.44
+STU2109,22,Male,4,Health Sciences,Off-campus Apartment,Intermediate,0.6,8.1,0.9,42,6.6,Smartphone,No,1,2,9.0,4,7.0,6.0,17.5,85.9,No,Fall,2.81
+STU2110,23,Female,2,Social Sciences,With Family,Night Owl,3.1,4.0,1.1,32,9.2,Laptop,Yes,3,3,5.0,1,6.0,9.0,3.0,82.3,Yes,Fall,2.27
+STU2111,22,female,1,STEM,Off-campus Apartment,Night Owl,1.9,6.0,2.5,75,4.8,Laptop,Yes,3,2,6.0,4,5.0,4.0,19.4,73.8,No,Spring,3.48
+STU2112,19,F,2,Business,Dormitory,Early Bird,22.9,7.7,1.1,22,4.5,Laptop,No,1,3,10.0,3,5.0,4.0,15.4,90.1,No,Fall,3.3
+STU2113,18,Female,5,STEM,Off-campus Apartment,Night Owl,0.7,4.8,1.7,50,4.8,Smartphone,Yes,0,1,7.0,2,6.0,4.0,9.9,78.1,No,Fall,2.64
+STU2114,24,Female,3,Health Sciences,Homestay,Early Bird,21.7,8.1,1.6,21,6.1,Tablet,Yes,2,1,10.0,4,5.0,6.0,10.4,77.1,No,Fall,3.24
+STU2115,23,Female,5,STEM,With Family,Intermediate,23.3,5.8,2.3,12,3.9,Smartphone,No,2,1,8.0,7,2.0,5.0,15.7,63.7,No,Fall,2.19
+STU2116,19,Male,5,STEM,Off-campus Apartment,Night Owl,1.3,6.0,1.8,69,5.3,Laptop,No,1,0,6.0,1,4.0,3.0,15.0,69.8,Yes,Summer,2.96
+STU2117,18,Female,2,STEM,Off-campus Apartment,Early Bird,22.6,8.7,-0.2,22,6.7,Smartphone,No,4,0,10.0,1,7.0,2.0,20.9,76.1,Yes,Spring,2.99
+STU2118,22,Female,5,Health Sciences,Off-campus Apartment,Intermediate,1.0,8.0,-1.0,24,2.1,Smartphone,No,0,2,10.0,4,7.0,6.0,19.3,83.1,No,Summer,3.26
+STU2119,23,Female,1,Business,Dormitory,Night Owl,0.3,6.3,1.8,61,9.9,Laptop,No,1,1,7.0,3,6.0,,8.3,100.0,No,Spring,2.75
+STU2120,19,Female,4,Business,With Family,Intermediate,23.0,9.3,2.1,36,5.4,Smartphone,,2,1,10.0,6,10.0,3.0,26.2,95.5,Yes,Spring,3.95
+STU2121,19,Male,1,Social Sciences,Off-campus Apartment,Early Bird,0.4,6.1,1.3,19,1.6,Tablet,No,1,1,7.0,2,4.0,6.0,24.1,71.2,No,Spring,2.98
+STU2122,19,Male,1,Law,Off-campus Apartment,Early Bird,22.6,8.3,0.2,6,6.0,Smartphone,Yes,2,1,10.0,6,6.0,6.0,14.5,74.7,Yes,Fall,3.02
+STU2123,19,Male,2,STEM,Dormitory,Night Owl,2.3,4.4,2.1,38,4.9,Smartphone,No,3,0,6.0,4,5.0,7.0,17.7,68.0,No,Spring,2.77
+STU2124,19,Male,2,Health Sciences,With Family,Intermediate,23.7,4.9,3.0,15,4.6,Laptop,No,1,0,6.0,6,5.0,8.0,9.9,63.4,Yes,Fall,2.89
+STU2125,22,Female,1,STEM,Off-campus Apartment,Intermediate,0.4,5.7,2.5,29,7.8,Laptop,Yes,0,2,6.0,6,7.0,7.0,21.1,96.8,Yes,Spring,3.09
+STU2126,20,Female,2,Social Sciences,Off-campus Apartment,Night Owl,1.5,6.3,2.0,57,4.5,Laptop,No,3,0,5.0,4,6.0,9.0,24.5,90.4,Yes,Fall,2.85
+STU2127,19,Male,1,STEM,Dormitory,Early Bird,0.2,7.8,0.3,25,6.5,Laptop,No,2,0,9.0,2,7.0,6.0,14.4,89.6,Yes,Spring,2.85
+STU2128,18,Female,4,STEM,Dormitory,Night Owl,1.3,6.6,2.3,19,5.9,Smartphone,No,1,1,7.0,7,4.0,4.0,21.7,63.3,No,Spring,2.77
+STU2129,17,Male,1,Social Sciences,Homestay,Early Bird,22.4,8.6,0.4,17,7.9,Tablet,Yes,1,0,10.0,3,7.0,4.0,19.9,79.6,Yes,Spring,3.31
+STU2130,22,Female,3,Social Sciences,Off-campus Apartment,Night Owl,1.4,3.4,2.7,17,4.4,Smartphone,No,1,2,3.0,2,6.0,6.0,26.9,56.7,Yes,Summer,2.69
+STU2131,22,Male,1,Social Sciences,Dormitory,Early Bird,23.0,7.9,-0.1,12,7.3,Smartphone,No,2,0,10.0,3,5.0,4.0,10.3,100.0,Yes,Fall,3.05
+STU2132,21,Female,1,Humanities,Dormitory,Early Bird,21.9,8.7,0.7,18,4.8,Smartphone,No,0,0,,2,10.0,5.0,11.3,82.2,No,Spring,2.89
+STU2133,19,Female,3,Health Sciences,Dormitory,Night Owl,1.6,5.0,1.5,70,7.3,Laptop,No,1,1,6.0,4,,,21.6,100.0,No,Spring,3.09
+STU2134,19,F,5,Business,Dormitory,Early Bird,22.5,6.9,2.1,36,2.5,Laptop,No,2,3,7.0,7,3.0,3.0,20.8,79.8,No,Summer,2.93
+STU2135,20,F,2,STEM,Off-campus Apartment,Intermediate,0.6,5.2,2.2,34,6.1,Smartphone,Yes,1,6,8.0,1,1.0,6.0,16.8,74.5,Yes,Summer,2.56
+STU2136,18,Male,1,Business,Off-campus Apartment,Intermediate,22.1,6.2,1.1,38,7.0,Smartphone,No,3,3,7.0,7,4.0,4.0,11.4,58.5,No,Spring,2.19
+STU2137,18,Male,3,Business,Off-campus Apartment,Night Owl,1.7,6.7,2.4,42,2.8,Laptop,No,3,1,7.0,7,4.0,4.0,19.7,74.5,No,Summer,2.89
+STU2138,21,male,5,STEM,Off-campus Apartment,Intermediate,0.1,7.2,3.0,47,7.5,Laptop,No,5,2,9.0,4,5.0,7.0,17.6,80.1,Yes,Spring,
+STU2139,22,Male,1,STEM,Off-campus Apartment,Early Bird,23.9,6.8,0.6,25,5.2,Laptop,No,2,1,9.0,7,8.0,2.0,4.3,96.7,Yes,Spring,2.74
+STU2140,21,Prefer not to say,5,Arts,Off-campus Apartment,Night Owl,0.8,6.8,2.7,79,7.9,Laptop,Yes,2,1,5.0,3,8.0,6.0,15.2,82.5,No,Spring,2.98
+STU2141,20,Male,4,Business,With Family,Intermediate,1.5,6.6,2.0,46,3.8,Laptop,No,1,0,9.0,4,7.0,5.0,21.2,76.1,No,Fall,2.98
+STU2142,19,male,4,STEM,Dormitory,Early Bird,21.4,6.1,3.1,21,5.2,Smartphone,No,1,2,7.0,0,6.0,5.0,13.2,80.1,No,Spring,2.87
+STU2143,19,Female,1,Law,Off-campus Apartment,Night Owl,2.3,3.4,2.3,78,5.8,Laptop,Yes,0,2,3.0,2,6.0,5.0,23.6,90.2,No,Fall,2.79
+STU2144,22,Female,5,STEM,Off-campus Apartment,Intermediate,0.1,7.0,0.2,48,7.2,Smartphone,No,0,0,8.0,0,7.0,4.0,29.7,69.3,No,Fall,2.94
+STU2145,23,M,3,STEM,Dormitory,Intermediate,21.7,1.5,3.2,55,3.2,Smartphone,No,1,0,7.0,4,5.0,2.0,18.4,93.0,No,Spring,2.91
+STU2146,21,Female,1,Health Sciences,With Family,Early Bird,22.9,7.0,2.4,11,5.4,Smartphone,No,7,1,6.0,1,3.0,2.0,23.5,80.2,No,Fall,3.4
+STU2147,19,Female,5,Health Sciences,Off-campus Apartment,Early Bird,23.9,7.9,1.8,32,7.0,Tablet,No,2,1,9.0,6,4.0,5.0,19.5,81.1,Yes,Fall,2.81
+STU2148,21,Female,2,Arts,Dormitory,Intermediate,22.5,7.5,1.3,26,4.4,Smartphone,No,4,2,10.0,2,4.0,7.0,16.5,57.4,Yes,Fall,2.7
+STU2149,20,Male,5,Law,Dormitory,Night Owl,1.8,5.3,2.4,54,5.7,Laptop,No,3,0,4.0,0,5.0,6.0,21.2,79.8,Yes,Fall,2.92
+STU2150,22,Female,5,Health Sciences,Dormitory,Night Owl,0.6,6.5,1.2,121,6.7,Smartphone,No,1,2,3.0,1,10.0,5.0,7.5,87.0,No,Spring,2.15
+STU2151,19,Male,4,STEM,With Family,Night Owl,0.8,5.3,2.3,30,2.1,Laptop,Yes,1,1,7.0,3,7.0,4.0,22.9,86.8,Yes,Spring,2.56
+STU2152,21,Male,1,Arts,Dormitory,Night Owl,1.7,3.2,3.8,37,9.4,Smartphone,No,2,1,3.0,2,1.0,8.0,10.5,76.9,No,Spring,1.9
+STU2153,22,female,2,STEM,Off-campus Apartment,Night Owl,22.7,4.5,2.1,62,6.8,Laptop,No,1,4,5.0,4,7.0,7.0,13.5,84.6,No,Summer,2.56
+STU2154,20,Male,5,Social Sciences,Off-campus Apartment,Early Bird,22.4,6.8,1.7,39,6.9,Laptop,Yes,0,2,8.0,4,2.0,5.0,28.7,82.1,Yes,Fall,3.8
+STU2155,19,M,1,STEM,Off-campus Apartment,Early Bird,21.6,7.6,1.6,17,3.1,Laptop,No,2,3,9.0,2,4.0,2.0,10.9,76.5,Yes,Fall,3.0
+STU2156,21,Female,4,STEM,Off-campus Apartment,Early Bird,21.9,7.7,0.8,10,5.0,Smartphone,No,1,0,7.0,7,,,22.0,63.9,Yes,Fall,2.77
+STU2157,22,male,2,STEM,Dormitory,Early Bird,21.7,6.6,2.7,4,10.3,Smartphone,No,1,1,8.0,1,5.0,4.0,15.3,83.5,Yes,Fall,3.06
+STU2158,22,Male,5,Social Sciences,Dormitory,Early Bird,22.9,8.7,1.1,27,8.1,Smartphone,Yes,2,1,9.0,0,9.0,1.0,24.3,85.2,Yes,Summer,3.17
+STU2159,19,Male,3,STEM,Dormitory,Early Bird,21.9,8.6,0.2,14,8.2,Smartphone,No,1,2,9.0,5,7.0,5.0,9.0,67.3,Yes,Spring,3.32
+STU2160,21,Male,4,Social Sciences,Off-campus Apartment,Early Bird,22.3,6.2,1.1,12,3.3,Smartphone,No,1,1,7.0,3,4.0,7.0,15.3,85.8,No,Fall,2.75
+STU2161,18,Female,2,Business,Off-campus Apartment,Intermediate,23.4,7.3,2.4,23,6.4,Laptop,No,0,3,10.0,4,7.0,,15.7,85.0,No,Summer,2.61
+STU2162,18,Male,4,Humanities,With Family,Night Owl,1.9,6.4,1.7,42,10.2,Tablet,No,2,1,7.0,7,5.0,5.0,8.8,76.6,No,Fall,2.66
+STU2163,22,female,2,STEM,With Family,Night Owl,0.9,6.7,2.0,74,5.9,Smartphone,No,1,1,7.0,5,2.0,5.0,15.5,79.0,No,Fall,2.8
+STU2164,23,Female,5,Social Sciences,Homestay,Night Owl,2.4,6.7,1.2,60,8.0,Laptop,No,0,3,10.0,7,7.0,2.0,12.3,66.5,Yes,Spring,2.99
+STU2165,21,Prefer not to say,3,STEM,With Family,Early Bird,23.3,5.2,3.3,37,5.8,Smartphone,No,1,1,5.0,1,4.0,5.0,22.7,66.7,No,Fall,2.92
+STU2166,21,Female,3,STEM,Dormitory,Early Bird,23.5,6.8,1.4,26,3.6,Smartphone,No,0,2,9.0,1,5.0,7.0,39.1,84.5,No,Summer,2.85
+STU2167,24,female,2,Humanities,Dormitory,Early Bird,22.0,7.0,2.6,26,7.8,Laptop,No,0,2,7.0,5,6.0,6.0,7.8,69.4,Yes,Fall,2.98
+STU2168,20,male,3,Business,With Family,Intermediate,0.1,4.5,3.2,24,5.8,Smartphone,No,2,3,8.0,7,3.0,9.0,21.8,79.3,No,Fall,2.62
+STU2169,17,Female,3,Health Sciences,With Family,Night Owl,2.7,5.3,2.7,58,8.2,Laptop,Yes,4,1,7.0,3,8.0,8.0,25.5,69.0,No,Summer,3.76
+STU2170,19,M,5,STEM,With Family,Intermediate,0.5,5.7,2.9,63,7.2,Laptop,No,0,0,6.0,4,4.0,5.0,17.6,67.4,No,Fall,2.78
+STU2171,21,F,5,STEM,Dormitory,Intermediate,21.7,5.9,0.2,56,8.2,Smartphone,No,1,3,7.0,6,8.0,6.0,12.0,81.7,Yes,Summer,2.42
+STU2172,21,Male,3,STEM,With Family,Early Bird,21.7,9.0,1.5,0,4.5,Laptop,Yes,0,2,10.0,5,6.0,6.0,15.1,69.1,No,Fall,3.07
+STU2173,20,Male,4,Social Sciences,Dormitory,Early Bird,22.1,7.6,1.5,22,9.8,Smartphone,,0,1,9.0,7,6.0,7.0,16.3,83.2,No,Spring,2.84
+STU2174,27,Male,2,Business,Dormitory,Early Bird,23.5,8.1,-0.5,29,9.4,Smartphone,No,2,0,8.0,4,6.0,1.0,10.7,84.2,Yes,Fall,3.17
+STU2175,19,Female,3,STEM,With Family,Intermediate,23.5,5.5,0.5,40,3.7,Laptop,Yes,2,2,7.0,4,6.0,5.0,5.2,87.3,No,Spring,2.6
+STU2176,17,Female,1,Health Sciences,Dormitory,Intermediate,23.6,6.3,3.4,14,6.2,Tablet,No,1,1,8.0,5,6.0,8.0,5.2,97.9,No,Spring,2.52
+STU2177,18,Female,4,STEM,Off-campus Apartment,Night Owl,0.8,4.7,2.0,92,8.9,Smartphone,No,3,1,4.0,6,5.0,8.0,10.3,87.3,No,Fall,2.89
+STU2178,22,Female,1,Social Sciences,Dormitory,Night Owl,1.1,3.7,0.9,57,7.0,Laptop,No,2,0,3.0,5,5.0,3.0,6.0,58.2,No,Fall,2.22
+STU2179,21,Female,1,Social Sciences,Dormitory,Intermediate,23.4,5.3,2.4,45,10.8,Smartphone,No,1,1,7.0,7,6.0,7.0,8.0,87.5,Yes,Spring,2.57
+STU2180,19,Male,5,Humanities,Dormitory,Night Owl,1.6,4.9,2.4,75,6.6,Smartphone,No,4,2,4.0,1,,7.0,12.5,63.7,No,Spring,2.15
+STU2181,17,female,4,Social Sciences,Dormitory,Intermediate,22.9,8.6,0.0,51,4.1,Smartphone,No,1,0,10.0,4,7.0,3.0,24.6,95.7,No,Fall,2.81
+STU2182,22,F,5,STEM,Dormitory,Early Bird,22.4,7.8,2.5,14,7.4,Smartphone,Yes,0,0,8.0,2,7.0,3.0,19.6,73.1,Yes,Fall,3.16
+STU2183,21,male,3,Humanities,With Family,Early Bird,23.7,7.7,2.1,12,4.2,Smartphone,No,3,1,10.0,7,5.0,5.0,16.1,89.9,No,Fall,3.03
+STU2184,21,Female,1,STEM,Dormitory,Intermediate,23.6,8.6,1.3,44,7.9,Tablet,No,2,2,10.0,0,8.0,5.0,21.5,82.0,No,Fall,3.57
+STU2185,19,male,2,STEM,Off-campus Apartment,Early Bird,23.3,8.5,1.3,18,7.9,Smartphone,No,1,1,10.0,1,5.0,4.0,8.2,100.0,Yes,Spring,3.06
+STU2186,19,Male,1,Arts,Dormitory,Early Bird,23.1,6.5,1.6,21,7.3,Laptop,No,0,1,9.0,2,3.0,4.0,8.0,58.9,Yes,Spring,2.37
+STU2187,18,Female,3,Arts,Off-campus Apartment,Night Owl,2.2,5.6,1.1,57,5.9,Tablet,Yes,1,2,6.0,0,6.0,5.0,16.3,66.0,No,Fall,2.4
+STU2188,20,Male,4,Business,Homestay,Intermediate,1.5,5.9,1.3,0,6.5,Laptop,Yes,0,2,9.0,5,6.0,5.0,10.6,97.6,Yes,Summer,2.7
+STU2189,19,F,5,Social Sciences,Off-campus Apartment,Night Owl,1.6,4.6,2.4,55,7.4,Smartphone,No,0,2,5.0,2,6.0,6.0,21.7,80.9,Yes,Spring,2.51
+STU2190,21,Male,4,Health Sciences,Dormitory,Intermediate,23.3,7.1,-1.0,41,4.0,Laptop,No,2,1,6.0,7,5.0,8.0,16.9,78.9,Yes,Fall,2.28
+STU2191,20,male,1,Arts,Off-campus Apartment,Intermediate,23.6,6.7,1.7,35,7.3,Smartphone,No,0,0,6.0,1,9.0,4.0,17.3,63.5,No,Fall,2.76
+STU2192,18,F,3,Business,Dormitory,Early Bird,22.9,6.6,0.2,35,8.9,Laptop,No,2,0,8.0,5,,6.0,18.9,69.0,Yes,Spring,2.88
+STU2193,23,Male,2,STEM,With Family,Intermediate,1.5,7.4,-1.0,7,6.9,Laptop,No,2,4,9.0,5,4.0,8.0,21.1,76.3,No,Summer,2.89
+STU2194,20,Female,5,Humanities,Dormitory,Intermediate,1.5,6.6,0.3,48,4.9,Smartphone,No,3,3,4.0,5,4.0,2.0,7.4,65.6,No,Fall,2.33
+STU2195,18,Male,4,STEM,Dormitory,Night Owl,1.3,6.7,2.0,78,4.7,Smartphone,No,1,1,4.0,3,5.0,4.0,9.6,72.4,No,Fall,2.17
+STU2196,22,female,2,Business,Off-campus Apartment,Early Bird,22.7,6.4,0.4,24,3.2,Laptop,Yes,0,0,9.0,2,5.0,5.0,21.0,66.5,No,Fall,2.76
+STU2197,21,Male,4,Social Sciences,With Family,Night Owl,23.8,4.2,1.5,40,5.6,Smartphone,No,4,5,3.0,4,,5.0,13.1,76.1,Yes,Spring,2.76
+STU2198,17,Female,3,Social Sciences,Dormitory,Early Bird,21.4,6.2,2.7,35,6.4,Smartphone,Yes,2,1,8.0,7,3.0,7.0,12.4,80.9,Yes,Fall,2.54
+STU2199,19,F,1,Arts,Off-campus Apartment,Intermediate,23.7,7.7,0.4,58,5.8,Smartphone,No,1,1,5.0,7,,4.0,11.2,90.9,Yes,Fall,2.57
+STU2200,19,Male,4,STEM,Off-campus Apartment,Intermediate,20.7,6.3,1.7,27,6.8,Smartphone,Yes,2,0,5.0,7,6.0,6.0,8.3,83.2,No,Fall,2.5
+STU2201,17,Male,4,Arts,Dormitory,Intermediate,0.6,6.9,1.2,22,5.0,Laptop,Yes,2,1,9.0,4,3.0,8.0,22.9,64.7,Yes,Spring,3.05
+STU2202,18,Prefer not to say,2,Health Sciences,Off-campus Apartment,Night Owl,0.3,5.0,1.9,5,5.1,Laptop,No,1,1,9.0,6,6.0,5.0,22.6,57.1,Yes,Fall,2.46
+STU2203,20,male,3,Social Sciences,With Family,Night Owl,0.3,4.2,3.1,58,6.8,Laptop,Yes,1,1,5.0,7,3.0,8.0,16.6,72.6,No,Fall,2.33
+STU2204,20,Male,3,Health Sciences,Off-campus Apartment,Intermediate,23.6,8.9,1.9,33,5.8,Smartphone,Yes,1,0,9.0,7,7.0,5.0,13.0,88.3,No,Spring,3.41
+STU2205,19,male,2,Law,With Family,Night Owl,1.8,5.3,4.0,82,4.3,Smartphone,No,0,0,7.0,6,7.0,5.0,17.3,66.3,Yes,Fall,2.69
+STU2206,20,F,4,Health Sciences,Dormitory,Early Bird,22.4,6.9,1.6,30,2.9,Smartphone,No,2,0,9.0,5,4.0,4.0,21.3,81.0,No,Spring,3.07
+STU2207,19,Male,3,STEM,Off-campus Apartment,Night Owl,22.4,5.0,0.5,82,6.4,Smartphone,No,5,3,3.0,6,2.0,9.0,3.7,71.5,Yes,Summer,2.39
+STU2208,19,Non-binary,3,Business,Off-campus Apartment,Intermediate,23.2,5.7,1.6,75,10.4,Laptop,No,3,0,5.0,4,6.0,8.0,15.9,62.9,No,Spring,2.61
+STU2209,18,Female,2,STEM,With Family,Night Owl,1.4,4.1,2.1,45,6.4,Smartphone,No,3,3,3.0,2,5.0,6.0,12.4,65.2,No,Fall,2.2
+STU2210,22,Male,5,STEM,With Family,Intermediate,0.1,6.9,1.8,33,5.1,Laptop,No,2,1,7.0,2,6.0,6.0,20.9,71.1,Yes,Fall,2.72
+STU2211,22,Female,2,STEM,Homestay,Early Bird,21.8,7.5,2.8,39,8.7,Laptop,No,0,2,7.0,0,7.0,4.0,19.4,89.2,Yes,Spring,2.95
+STU2212,17,Male,1,Business,Dormitory,Night Owl,0.6,3.2,2.1,61,5.1,Laptop,No,2,4,2.0,3,2.0,8.0,26.3,74.0,No,Fall,3.18
+STU2213,23,Male,4,STEM,With Family,Intermediate,0.8,8.1,2.7,65,6.3,Tablet,No,2,1,,6,9.0,,23.7,93.1,Yes,Spring,3.26
+STU2214,17,Female,4,Business,Dormitory,Night Owl,1.8,6.3,2.0,67,6.7,Laptop,Yes,0,1,8.0,4,6.0,6.0,18.9,93.0,No,Fall,2.98
+STU2215,20,Male,1,Arts,Dormitory,Intermediate,0.0,7.9,1.1,23,7.4,Smartphone,No,3,0,9.0,5,5.0,8.0,15.9,100.0,Yes,Fall,3.04
+STU2216,22,Male,2,STEM,Dormitory,Night Owl,1.0,5.3,3.0,80,4.9,Smartphone,No,2,0,3.0,0,8.0,3.0,11.1,71.7,Yes,Spring,2.06
+STU2217,21,male,5,Business,Dormitory,Intermediate,1.0,6.5,0.4,51,5.9,Laptop,No,1,1,6.0,5,7.0,8.0,26.1,72.8,No,Fall,2.47
+STU2218,22,Male,5,STEM,Dormitory,Early Bird,23.2,7.0,1.5,14,7.6,Laptop,Yes,1,0,7.0,2,5.0,5.0,11.6,72.8,Yes,Summer,2.85
+STU2219,20,Female,5,Business,Dormitory,Intermediate,23.7,8.2,0.9,41,4.1,Laptop,No,3,1,9.0,4,6.0,2.0,18.7,71.0,No,Summer,3.13
+STU2220,23,Male,5,STEM,With Family,Intermediate,24.0,5.6,2.4,22,7.4,Laptop,No,2,1,8.0,4,3.0,5.0,28.8,67.6,No,Spring,2.92
+STU2221,20,male,4,Social Sciences,With Family,Early Bird,21.9,7.1,0.4,0,3.9,Smartphone,Yes,0,1,8.0,1,4.0,3.0,21.4,82.1,No,Spring,2.88
+STU2222,20,female,1,Health Sciences,Dormitory,Night Owl,2.1,5.4,2.3,27,6.1,Smartphone,No,1,2,7.0,3,1.0,7.0,8.1,65.1,No,Summer,2.3
+STU2223,21,Male,1,Health Sciences,With Family,Night Owl,1.6,4.3,2.1,74,7.3,Laptop,Yes,3,1,2.0,1,2.0,5.0,29.2,76.5,Yes,Fall,2.85
+STU2224,18,Male,5,Health Sciences,Off-campus Apartment,Intermediate,0.9,6.7,1.1,45,4.2,Laptop,No,0,0,8.0,6,6.0,4.0,13.3,74.0,No,Fall,3.06
+STU2225,18,Male,5,Social Sciences,Dormitory,Intermediate,23.5,6.0,1.4,43,9.2,Smartphone,Yes,3,5,5.0,7,5.0,6.0,20.7,71.9,No,Fall,2.75
+STU2226,26,Non-binary,2,Business,Dormitory,Early Bird,19.0,8.3,-0.8,45,8.9,Smartphone,No,3,1,9.0,1,8.0,8.0,11.4,61.5,No,Summer,3.15
+STU2227,17,Male,2,Social Sciences,With Family,Intermediate,0.4,6.2,-0.1,35,5.1,Laptop,No,3,1,8.0,5,6.0,4.0,15.4,69.5,No,Spring,2.89
+STU2228,20,Male,4,Social Sciences,With Family,Night Owl,0.8,8.1,0.3,50,3.9,Laptop,No,1,0,9.0,0,6.0,6.0,29.8,80.2,No,Fall,3.39
+STU2229,21,Male,3,STEM,With Family,Night Owl,1.3,4.3,3.1,63,6.9,Smartphone,Yes,3,3,4.0,3,6.0,7.0,18.9,73.0,No,Fall,3.43
+STU2230,21,Female,4,Social Sciences,Dormitory,Intermediate,1.2,6.8,-0.2,32,6.6,Laptop,No,0,1,9.0,5,7.0,7.0,20.6,89.0,No,Fall,2.56
+STU2231,19,female,2,STEM,With Family,Early Bird,22.8,6.8,1.8,20,0.5,Tablet,No,2,1,8.0,6,8.0,5.0,19.1,81.4,No,Spring,2.94
+STU2232,26,Male,3,STEM,Dormitory,Night Owl,23.8,4.1,2.2,47,9.4,Laptop,No,2,3,6.0,4,5.0,6.0,16.7,98.3,Yes,Spring,2.85
+STU2233,17,Female,4,Health Sciences,Dormitory,Intermediate,23.1,5.7,2.2,72,7.3,Smartphone,No,2,2,6.0,3,2.0,7.0,17.5,73.7,Yes,Fall,3.03
+STU2234,19,Male,1,Health Sciences,With Family,Night Owl,23.3,6.8,1.4,41,3.0,Smartphone,No,0,2,10.0,2,7.0,4.0,23.0,98.3,Yes,Spring,3.47
+STU2235,22,Male,4,Law,With Family,Night Owl,2.6,7.2,0.4,85,7.2,Smartphone,Yes,0,1,9.0,3,7.0,5.0,17.7,100.0,No,Spring,2.76
+STU2236,19,Male,3,Social Sciences,With Family,Intermediate,23.6,7.7,1.5,66,10.0,Laptop,No,1,1,10.0,6,7.0,9.0,14.0,80.5,No,Fall,3.1
+STU2237,20,Male,4,Law,Off-campus Apartment,Night Owl,1.1,5.7,2.4,39,8.5,Smartphone,No,1,0,6.0,5,6.0,6.0,16.1,78.4,No,Fall,2.7
+STU2238,26,Male,2,STEM,Dormitory,Early Bird,22.8,8.1,0.8,14,5.5,Laptop,No,1,1,10.0,3,8.0,1.0,5.2,66.8,No,Fall,3.15
+STU2239,22,Male,1,STEM,Off-campus Apartment,Night Owl,0.7,6.2,1.8,53,4.1,Tablet,No,0,5,9.0,7,9.0,6.0,15.9,80.3,Yes,Fall,2.95
+STU2240,20,Male,3,STEM,Dormitory,Night Owl,0.5,7.5,1.9,53,1.0,Laptop,Yes,1,1,7.0,6,6.0,2.0,25.7,85.7,Yes,Fall,2.69
+STU2241,24,F,4,Health Sciences,Off-campus Apartment,Intermediate,20.4,7.4,0.0,20,5.2,Smartphone,No,1,1,9.0,2,8.0,4.0,24.2,64.1,No,Summer,3.05
+STU2242,20,M,1,Law,Off-campus Apartment,Night Owl,23.1,6.1,3.0,94,7.1,Smartphone,Yes,0,3,6.0,5,3.0,7.0,13.9,62.4,No,Spring,2.67
+STU2243,19,Male,1,Business,With Family,Early Bird,22.5,8.2,0.1,16,5.1,Smartphone,Yes,1,1,,7,5.0,2.0,19.6,93.6,Yes,Summer,2.88
+STU2244,22,Female,1,Health Sciences,Dormitory,Night Owl,23.9,4.5,2.5,10,3.3,Smartphone,,1,5,6.0,1,7.0,4.0,19.8,85.3,No,Spring,3.05
+STU2245,20,Female,2,Business,Dormitory,Intermediate,1.5,8.2,0.8,25,5.2,Laptop,Yes,0,1,10.0,1,10.0,6.0,13.5,80.3,No,Spring,3.25
+STU2246,20,Female,2,STEM,Off-campus Apartment,Intermediate,23.5,7.0,0.1,54,7.4,Smartphone,No,2,5,8.0,5,2.0,8.0,11.8,72.2,No,Spring,2.64
+STU2247,18,Female,4,Humanities,Dormitory,Intermediate,0.8,7.1,1.4,27,4.7,Smartphone,No,2,0,8.0,5,4.0,8.0,7.3,77.0,Yes,Summer,2.84
+STU2248,21,male,1,Health Sciences,Off-campus Apartment,Intermediate,21.6,6.4,0.3,56,6.4,Smartphone,No,2,3,7.0,7,7.0,6.0,12.1,76.8,No,Spring,2.59
+STU2249,23,Male,2,Health Sciences,Off-campus Apartment,Early Bird,21.9,8.6,0.3,15,8.0,Laptop,Yes,1,0,10.0,5,10.0,4.0,19.9,77.9,Yes,Fall,3.18
+STU2250,20,male,3,STEM,Homestay,Early Bird,23.4,7.5,1.1,44,5.4,Smartphone,No,0,2,10.0,2,9.0,7.0,14.2,97.9,Yes,Spring,2.85
+STU2251,24,female,1,Social Sciences,Off-campus Apartment,Intermediate,0.7,5.5,0.8,38,3.8,Laptop,No,3,0,5.0,1,6.0,2.0,16.2,72.6,No,Fall,2.78
+STU2252,20,female,1,Business,With Family,Night Owl,3.9,6.4,1.8,33,3.2,Smartphone,No,3,1,7.0,4,3.0,5.0,10.2,55.4,No,Summer,2.88
+STU2253,24,Female,4,STEM,Off-campus Apartment,Intermediate,1.5,4.9,3.2,32,2.8,Smartphone,No,1,0,6.0,2,4.0,4.0,31.4,73.4,Yes,Spring,3.18
+STU2254,20,female,5,Social Sciences,Dormitory,Intermediate,0.8,7.1,1.5,64,5.5,Smartphone,No,1,2,9.0,2,7.0,3.0,17.2,71.1,No,Spring,2.66
+STU2255,21,Female,1,STEM,With Family,Early Bird,22.1,9.2,1.5,20,7.1,Smartphone,No,0,0,10.0,1,6.0,3.0,12.8,88.9,Yes,Spring,3.55
+STU2256,18,Prefer not to say,3,STEM,Dormitory,Night Owl,1.4,3.3,2.8,73,6.0,Smartphone,No,1,4,1.0,3,2.0,8.0,19.2,68.3,Yes,Spring,2.39
+STU2257,20,F,2,STEM,With Family,Night Owl,1.3,3.8,3.1,54,5.1,Laptop,No,4,6,6.0,5,4.0,7.0,20.4,36.9,Yes,Spring,2.93
+STU2258,18,Female,5,Business,Dormitory,Early Bird,22.4,9.1,0.9,26,7.5,Smartphone,Yes,0,1,10.0,7,7.0,7.0,24.7,87.4,Yes,Fall,3.69
+STU2259,19,Female,5,STEM,Dormitory,Intermediate,23.0,6.9,1.1,43,7.6,Smartphone,Yes,0,2,8.0,5,9.0,7.0,18.0,100.0,No,Fall,3.08
+STU2260,18,Male,3,Business,Off-campus Apartment,Early Bird,22.4,6.9,3.0,18,6.9,Smartphone,No,2,3,7.0,1,6.0,7.0,16.8,56.5,No,Fall,2.88
+STU2261,23,male,5,Business,Dormitory,Night Owl,1.4,4.8,1.5,67,4.7,Smartphone,No,4,4,5.0,6,5.0,8.0,25.8,83.1,No,Spring,2.19
+STU2262,20,Female,5,Health Sciences,Homestay,Early Bird,22.4,7.3,1.9,3,6.8,Smartphone,Yes,1,2,6.0,1,6.0,5.0,17.8,68.9,No,Spring,2.68
+STU2263,22,Female,2,STEM,Dormitory,Intermediate,23.2,8.2,2.1,49,3.9,Laptop,No,0,2,10.0,1,4.0,1.0,16.9,92.4,Yes,Spring,3.26
+STU2264,19,female,1,STEM,With Family,Intermediate,23.0,6.8,3.0,45,7.4,Smartphone,No,3,2,8.0,0,7.0,3.0,18.0,82.0,No,Fall,2.9
+STU2265,22,Female,3,Business,With Family,Night Owl,1.9,5.7,2.8,57,4.8,Smartphone,No,3,3,5.0,7,4.0,3.0,19.6,71.4,No,Spring,2.73
+STU2266,20,Female,4,Law,Off-campus Apartment,Intermediate,22.6,6.1,0.9,38,6.0,Smartphone,Yes,0,0,8.0,4,7.0,8.0,12.5,65.7,No,Fall,2.66
+STU2267,23,Male,4,Social Sciences,Off-campus Apartment,Night Owl,1.0,5.1,1.9,76,4.3,Smartphone,Yes,5,0,7.0,0,2.0,3.0,29.3,79.3,Yes,Summer,2.84
+STU2268,17,female,4,Business,Dormitory,Early Bird,21.5,8.2,0.1,16,5.0,Smartphone,No,0,1,9.0,1,5.0,4.0,10.3,100.0,No,Summer,2.86
+STU2269,22,Non-binary,1,STEM,Off-campus Apartment,Night Owl,0.2,5.0,0.3,63,5.9,Laptop,No,2,1,2.0,6,7.0,6.0,26.1,53.4,Yes,Summer,2.5
+STU2270,22,M,4,Social Sciences,With Family,Intermediate,1.3,5.9,2.2,65,6.7,Smartphone,No,1,3,5.0,6,5.0,4.0,16.6,83.5,Yes,Spring,3.17
+STU2271,22,Female,4,Social Sciences,With Family,Intermediate,23.6,8.7,1.3,13,9.7,Laptop,No,2,3,10.0,3,6.0,3.0,8.0,100.0,No,Fall,2.57
+STU2272,17,Female,2,Health Sciences,Off-campus Apartment,Early Bird,22.1,9.5,1.0,18,2.4,Laptop,No,0,2,10.0,1,6.0,4.0,15.7,100.0,Yes,Spring,3.14
+STU2273,19,Prefer not to say,4,Health Sciences,Dormitory,Early Bird,22.7,7.0,0.5,20,10.3,Smartphone,No,2,3,8.0,0,6.0,7.0,7.7,85.1,No,Fall,2.69
+STU2274,20,male,2,STEM,Homestay,Night Owl,1.0,2.5,3.9,5,7.9,Smartphone,No,1,4,3.0,5,4.0,6.0,28.0,72.3,Yes,Fall,3.0
+STU2275,20,Female,4,STEM,Dormitory,Early Bird,22.5,8.8,0.7,20,3.2,Tablet,No,0,1,10.0,0,6.0,3.0,18.1,96.8,No,Summer,3.24
+STU2276,18,female,2,Humanities,With Family,Intermediate,23.6,5.9,0.7,40,3.7,Smartphone,No,2,4,7.0,3,4.0,6.0,31.5,84.3,No,Spring,3.63
+STU2277,19,Male,4,Social Sciences,Dormitory,Night Owl,1.1,7.0,0.5,57,3.3,Smartphone,No,0,0,8.0,7,,,20.1,83.7,Yes,Fall,2.78
+STU2278,20,Male,3,Social Sciences,Dormitory,Intermediate,1.0,9.0,2.1,52,7.5,Smartphone,Yes,2,1,9.0,3,7.0,1.0,19.4,78.0,No,Fall,3.54
+STU2279,21,Female,4,Social Sciences,Dormitory,Intermediate,23.9,8.4,0.7,17,8.5,Laptop,No,6,0,7.0,2,5.0,3.0,9.1,91.3,No,Fall,2.72
+STU2280,20,F,1,Health Sciences,With Family,Intermediate,0.2,5.2,1.3,22,5.2,Smartphone,No,2,0,6.0,4,4.0,5.0,6.9,67.3,Yes,Fall,2.59
+STU2281,23,female,4,Law,Dormitory,Intermediate,0.5,6.8,2.6,65,6.4,Laptop,No,1,0,9.0,4,7.0,4.0,14.4,66.0,No,Spring,3.17
+STU2282,21,Male,1,STEM,Dormitory,Night Owl,2.0,6.0,2.2,80,9.7,Smartphone,No,1,1,9.0,1,7.0,5.0,21.5,78.0,No,Spring,3.14
+STU2283,24,Male,5,Business,Homestay,Intermediate,0.8,6.4,2.6,39,1.2,Smartphone,,1,3,7.0,3,5.0,6.0,21.1,70.8,No,Spring,2.84
+STU2284,17,Male,2,Arts,Dormitory,Early Bird,22.4,8.0,-0.1,37,6.9,Laptop,No,0,0,9.0,6,8.0,3.0,17.3,91.7,No,Spring,3.29
+STU2285,21,Female,5,STEM,Off-campus Apartment,Intermediate,0.4,7.0,1.7,8,5.4,Laptop,Yes,1,1,8.0,6,5.0,9.0,17.6,75.9,No,Fall,2.72
+STU2286,27,Female,1,Business,Dormitory,Early Bird,22.2,9.2,1.6,29,6.6,Smartphone,Yes,1,0,10.0,7,8.0,4.0,19.8,90.6,No,Fall,2.88
+STU2287,21,Female,3,STEM,With Family,Early Bird,21.4,9.4,0.6,20,4.9,Smartphone,No,0,2,10.0,6,7.0,4.0,16.3,93.3,Yes,Spring,3.24
+STU2288,19,Male,1,STEM,With Family,Intermediate,22.6,6.0,1.2,61,5.6,Laptop,Yes,0,2,7.0,0,8.0,7.0,12.2,68.7,No,Fall,2.52
+STU2289,20,Male,2,STEM,Dormitory,Early Bird,22.3,7.5,1.8,11,5.4,Laptop,No,1,1,8.0,5,8.0,2.0,21.8,78.6,No,Summer,2.85
+STU2290,23,Male,3,Arts,Off-campus Apartment,Early Bird,23.0,5.3,2.3,9,2.9,Smartphone,No,1,4,7.0,1,8.0,3.0,28.9,66.8,No,Fall,2.9
+STU2291,23,Male,1,STEM,Off-campus Apartment,Intermediate,0.4,8.8,1.4,46,7.2,Smartphone,No,4,1,10.0,5,4.0,5.0,21.7,85.6,No,Spring,3.11
+STU2292,19,Female,5,Business,Off-campus Apartment,Night Owl,1.6,5.3,2.0,53,6.1,Laptop,No,3,0,5.0,6,4.0,4.0,7.4,65.6,Yes,Spring,2.89
+STU2293,21,F,1,Health Sciences,With Family,Early Bird,20.3,6.5,2.3,40,8.4,Smartphone,Yes,2,2,10.0,3,9.0,4.0,12.5,94.7,No,Spring,2.88
+STU2294,18,Male,3,Humanities,Off-campus Apartment,Early Bird,22.3,8.1,2.3,29,5.5,Smartphone,Yes,1,0,8.0,6,8.0,3.0,14.9,68.5,No,Fall,2.81
+STU2295,23,Male,1,Arts,Off-campus Apartment,Night Owl,2.0,6.4,0.8,28,5.3,Smartphone,No,2,1,7.0,7,5.0,6.0,13.0,91.5,No,Spring,2.84
+STU2296,20,Female,5,Arts,Dormitory,Early Bird,20.4,8.2,0.4,33,5.8,Smartphone,No,0,2,10.0,7,2.0,5.0,7.1,78.4,No,Fall,
+STU2297,19,female,3,Law,Homestay,Night Owl,0.0,5.9,2.2,55,6.3,Laptop,Yes,3,2,8.0,1,7.0,6.0,10.6,50.0,No,Summer,2.47
+STU2298,18,Male,3,STEM,With Family,Night Owl,2.5,7.1,-0.7,58,3.8,Laptop,No,1,0,8.0,7,6.0,,14.8,73.5,Yes,Summer,2.83
+STU2299,19,Male,5,STEM,Off-campus Apartment,Early Bird,23.3,7.8,0.6,27,4.4,Smartphone,No,3,1,10.0,3,7.0,5.0,1.3,77.6,No,Spring,3.05
+STU2300,20,Male,3,Arts,Homestay,Intermediate,23.4,7.0,-0.2,29,7.6,Laptop,Yes,1,0,8.0,7,5.0,4.0,11.2,59.1,No,Spring,2.51
+STU2301,18,Non-binary,1,Health Sciences,Off-campus Apartment,Intermediate,0.2,5.1,2.3,0,6.3,Smartphone,No,2,1,8.0,1,8.0,7.0,11.0,56.5,No,Spring,2.78
+STU2302,21,male,5,STEM,Off-campus Apartment,Early Bird,21.3,9.2,0.5,26,7.2,Laptop,No,1,1,10.0,0,10.0,3.0,18.5,85.4,No,Spring,3.28
+STU2303,19,F,5,STEM,With Family,Intermediate,1.1,7.4,1.9,0,4.3,Smartphone,Yes,1,0,10.0,2,8.0,5.0,19.4,95.3,No,Summer,2.67
+STU2304,19,Female,2,Business,Dormitory,Intermediate,23.8,6.3,0.4,37,5.7,Smartphone,Yes,4,2,8.0,5,5.0,5.0,9.1,99.3,No,Spring,2.71
+STU2305,19,male,2,Business,Dormitory,Intermediate,0.5,6.5,1.8,35,4.1,Laptop,Yes,1,1,7.0,2,8.0,5.0,15.0,73.6,No,Fall,3.24
+STU2306,19,Non-binary,3,Humanities,Dormitory,Intermediate,1.0,4.4,2.1,63,2.3,Laptop,No,3,0,3.0,1,5.0,4.0,16.8,71.8,Yes,Fall,2.76
+STU2307,18,Female,3,Business,Dormitory,Intermediate,23.9,8.2,0.5,57,6.0,Smartphone,Yes,2,0,7.0,6,6.0,1.0,15.0,90.5,No,Fall,2.74
+STU2308,21,Male,1,Law,With Family,Early Bird,23.3,8.4,0.4,33,8.1,Smartphone,No,2,1,9.0,6,5.0,4.0,11.2,100.0,No,Fall,2.82
+STU2309,22,Male,5,Social Sciences,Homestay,Early Bird,22.5,6.2,1.8,6,6.6,Laptop,No,4,3,6.0,7,4.0,6.0,12.0,89.6,No,Spring,2.88
+STU2310,21,Male,4,STEM,Off-campus Apartment,Night Owl,0.0,4.1,2.4,43,1.8,Smartphone,No,2,5,4.0,0,5.0,3.0,29.0,70.6,No,Fall,2.8
+STU2311,23,male,4,STEM,With Family,Night Owl,0.2,5.5,2.1,66,5.7,Laptop,Yes,6,4,6.0,5,3.0,7.0,12.3,90.6,No,Fall,2.97
+STU2312,17,Non-binary,1,Law,Off-campus Apartment,Intermediate,0.2,5.8,2.4,20,4.3,Smartphone,No,4,0,8.0,1,5.0,6.0,25.8,62.5,No,Fall,
+STU2313,19,F,2,Business,Off-campus Apartment,Intermediate,22.3,8.2,0.8,43,5.9,Tablet,No,2,0,10.0,4,8.0,6.0,7.0,91.3,No,Spring,3.5
+STU2314,19,Female,3,Business,With Family,Intermediate,22.6,5.7,0.7,32,5.6,Laptop,No,1,3,7.0,5,5.0,7.0,16.9,85.3,No,Summer,2.6
+STU2315,19,Female,3,STEM,Dormitory,Intermediate,22.2,5.3,1.9,49,4.9,Tablet,No,2,0,4.0,5,7.0,8.0,29.7,68.6,Yes,Fall,2.67
+STU2316,22,Female,4,STEM,With Family,Intermediate,23.5,4.9,1.6,18,4.2,Laptop,No,3,3,4.0,1,8.0,5.0,14.1,49.8,No,Fall,2.04
+STU2317,19,Female,4,Business,Off-campus Apartment,Intermediate,23.6,7.4,1.5,51,5.6,Laptop,No,1,0,7.0,5,7.0,4.0,27.6,82.0,No,Spring,2.62
+STU2318,21,Female,4,Arts,Off-campus Apartment,Intermediate,1.3,5.8,2.3,35,4.1,Laptop,No,1,3,7.0,4,6.0,3.0,15.2,86.2,No,Fall,2.82
+STU2319,19,Male,3,Business,Dormitory,Intermediate,23.9,6.1,0.4,86,5.1,Smartphone,No,2,4,7.0,7,4.0,5.0,6.2,78.7,Yes,Fall,2.19
+STU2320,17,Female,5,Law,Off-campus Apartment,Intermediate,1.4,5.9,0.4,65,7.5,Laptop,No,2,2,6.0,5,6.0,7.0,19.0,83.5,No,Spring,2.42
+STU2321,17,M,5,STEM,With Family,Night Owl,0.8,6.1,0.8,5,7.7,Laptop,Yes,0,0,10.0,3,5.0,8.0,15.2,80.0,Yes,Fall,3.33
+STU2322,19,female,4,Social Sciences,Off-campus Apartment,Night Owl,0.7,6.2,2.2,34,8.5,Smartphone,No,2,0,10.0,1,7.0,10.0,15.4,94.7,No,Spring,2.79
+STU2323,23,Female,3,Business,Off-campus Apartment,Early Bird,22.2,8.8,1.5,70,6.3,Smartphone,No,2,0,8.0,0,9.0,4.0,15.5,71.7,No,Fall,2.5
+STU2324,22,Female,4,Law,With Family,Night Owl,2.0,5.0,1.0,70,3.4,Smartphone,Yes,1,1,4.0,2,7.0,7.0,10.2,89.6,No,Fall,2.4
+STU2325,20,Non-binary,1,Health Sciences,Dormitory,Intermediate,0.2,8.5,1.9,48,6.8,Laptop,No,2,1,9.0,0,9.0,5.0,13.5,76.2,No,Fall,2.74
+STU2326,17,Female,3,STEM,Dormitory,Intermediate,0.5,9.2,0.7,57,3.7,Smartphone,No,0,1,9.0,7,5.0,2.0,17.7,94.5,No,Fall,3.12
+STU2327,24,Female,3,STEM,Dormitory,Early Bird,0.2,6.5,1.7,30,6.9,Smartphone,Yes,2,2,6.0,7,7.0,4.0,18.3,58.5,No,Summer,3.08
+STU2328,18,Male,5,Social Sciences,With Family,Night Owl,0.3,3.9,1.3,67,3.9,Laptop,No,0,4,5.0,7,4.0,6.0,23.2,55.5,No,Fall,2.72
+STU2329,21,male,4,Humanities,Off-campus Apartment,Intermediate,23.9,5.5,2.2,20,8.5,Laptop,No,0,2,6.0,7,5.0,6.0,16.8,68.8,Yes,Fall,3.06
+STU2330,21,M,4,Arts,Off-campus Apartment,Intermediate,23.6,6.9,1.7,39,8.5,Laptop,Yes,2,0,8.0,4,5.0,4.0,19.5,93.8,Yes,Spring,2.89
+STU2331,21,Male,3,Humanities,With Family,Intermediate,22.6,7.6,1.6,26,5.3,Smartphone,No,2,2,8.0,6,7.0,5.0,23.9,75.3,Yes,Spring,2.7
+STU2332,17,Male,2,Health Sciences,Off-campus Apartment,Intermediate,22.8,6.1,2.1,46,1.0,Smartphone,No,2,0,4.0,2,5.0,5.0,16.0,84.1,No,Spring,2.53
+STU2333,18,Male,2,STEM,With Family,Early Bird,22.5,6.0,2.7,40,5.7,Smartphone,No,3,4,6.0,2,1.0,9.0,11.5,48.1,No,Fall,3.11
+STU2334,19,Male,4,Business,With Family,Intermediate,23.1,7.1,1.8,20,4.7,Laptop,No,0,1,10.0,7,10.0,1.0,15.6,82.3,No,Summer,2.96
+STU2335,19,Non-binary,4,Health Sciences,Dormitory,Intermediate,23.3,6.0,0.7,34,6.7,Smartphone,Yes,1,2,6.0,7,6.0,7.0,17.9,85.3,No,Fall,2.87
+STU2336,22,Female,5,Health Sciences,With Family,Early Bird,22.3,8.5,1.9,20,6.4,Laptop,Yes,2,2,10.0,5,7.0,5.0,28.3,99.7,No,Summer,3.21
+STU2337,21,Male,5,STEM,Dormitory,Night Owl,2.6,7.5,1.9,240,7.6,Smartphone,No,1,0,10.0,1,6.0,6.0,11.0,88.7,No,Spring,3.17
+STU2338,18,Female,3,Business,With Family,Night Owl,1.9,4.6,2.1,32,6.8,Laptop,Yes,4,4,5.0,5,5.0,9.0,17.3,85.1,Yes,Fall,2.63
+STU2339,19,Male,3,STEM,Dormitory,Early Bird,22.4,8.6,2.3,46,7.5,Smartphone,Yes,0,0,,1,4.0,4.0,16.0,83.2,No,Fall,2.97
+STU2340,20,Female,1,STEM,With Family,Night Owl,1.4,6.1,0.8,46,5.8,Laptop,Yes,1,1,10.0,4,7.0,6.0,18.5,86.0,No,Spring,3.07
+STU2341,19,Male,1,Social Sciences,Off-campus Apartment,Night Owl,1.0,6.8,0.8,91,5.3,Laptop,No,1,0,6.0,3,4.0,4.0,21.2,96.8,No,Summer,3.18
+STU2342,19,Female,1,Law,Off-campus Apartment,Early Bird,22.7,7.6,0.6,10,3.4,Smartphone,No,2,1,7.0,6,3.0,4.0,26.8,100.0,Yes,Summer,2.91
+STU2343,20,Female,5,Business,With Family,Night Owl,0.5,5.7,1.7,54,5.6,Laptop,No,0,1,6.0,6,8.0,4.0,15.3,76.7,No,Spring,3.17
+STU2344,20,Female,2,Humanities,With Family,Intermediate,23.3,6.7,1.6,0,5.4,Laptop,Yes,2,1,10.0,2,8.0,5.0,9.2,77.1,Yes,Fall,3.26
+STU2345,23,Female,1,STEM,Dormitory,Night Owl,2.2,7.9,-0.5,45,6.9,Laptop,No,0,0,10.0,3,7.0,2.0,13.9,100.0,Yes,Spring,2.78
+STU2346,18,Male,3,STEM,Off-campus Apartment,Early Bird,23.1,8.2,0.8,0,6.4,Smartphone,No,1,1,9.0,4,6.0,1.0,23.2,83.4,No,Fall,3.06
+STU2347,21,Male,1,Humanities,With Family,Intermediate,22.3,6.2,2.2,31,3.8,Smartphone,No,0,4,7.0,0,6.0,7.0,8.3,64.4,No,Fall,2.49
+STU2348,20,Male,4,STEM,With Family,Intermediate,23.8,6.0,1.2,60,8.8,Smartphone,No,2,1,6.0,4,4.0,7.0,19.7,92.9,No,Spring,2.57
+STU2349,20,Female,1,Social Sciences,With Family,Intermediate,23.1,7.4,1.3,46,2.8,Smartphone,No,2,2,5.0,3,8.0,3.0,29.2,73.3,No,Spring,2.97
+STU2350,20,Female,4,Humanities,Off-campus Apartment,Intermediate,0.0,7.3,0.9,40,5.8,Smartphone,No,2,3,6.0,4,7.0,5.0,18.5,80.5,Yes,Fall,2.18
+STU2351,21,Female,5,Business,Homestay,Intermediate,0.8,7.2,2.6,41,8.2,Laptop,No,2,1,8.0,0,6.0,6.0,26.7,72.0,No,Fall,3.16
+STU2352,24,Female,4,Business,With Family,Night Owl,1.1,3.7,2.8,74,5.6,Laptop,No,4,1,1.0,7,2.0,4.0,10.8,85.7,Yes,Spring,2.36
+STU2353,17,Male,2,STEM,Off-campus Apartment,Intermediate,0.9,6.6,1.9,0,8.3,Laptop,Yes,4,1,9.0,5,5.0,4.0,23.4,83.6,No,Spring,3.6
+STU2354,23,Male,3,STEM,Dormitory,Night Owl,1.8,5.4,2.1,35,3.1,Smartphone,No,2,1,5.0,5,5.0,4.0,21.7,97.0,Yes,Fall,3.3
+STU2355,20,Female,3,Social Sciences,With Family,Intermediate,1.1,6.7,3.4,22,2.6,Smartphone,No,1,1,9.0,7,3.0,2.0,7.9,89.3,No,Spring,2.96
+STU2356,20,Male,2,STEM,Off-campus Apartment,Early Bird,23.4,7.9,1.7,8,5.5,Laptop,No,1,2,9.0,4,4.0,7.0,25.9,96.6,Yes,Fall,3.58
+STU2357,17,Male,3,Law,Off-campus Apartment,Intermediate,23.3,6.3,2.8,59,7.9,Smartphone,No,2,1,6.0,5,6.0,6.0,7.7,75.8,Yes,Fall,2.25
+STU2358,22,Female,3,STEM,Off-campus Apartment,Early Bird,22.5,6.4,3.1,9,5.6,Smartphone,No,2,1,5.0,6,4.0,1.0,19.2,94.0,Yes,Summer,2.59
+STU2359,22,Female,2,STEM,With Family,Intermediate,21.9,8.4,1.1,40,3.6,Smartphone,No,0,4,6.0,7,8.0,6.0,11.4,81.6,Yes,Fall,2.78
+STU2360,20,Female,5,Humanities,Off-campus Apartment,Intermediate,1.0,5.6,1.2,47,6.7,Smartphone,,1,1,8.0,0,3.0,8.0,22.4,97.7,No,Fall,2.76
+STU2361,21,Female,5,STEM,Off-campus Apartment,Intermediate,1.5,7.3,0.2,25,5.0,Smartphone,No,3,1,8.0,7,8.0,3.0,26.7,85.8,No,Spring,3.36
+STU2362,23,M,2,Business,Dormitory,Night Owl,0.7,5.0,1.5,34,4.8,Smartphone,No,1,1,,7,4.0,3.0,18.8,67.8,No,Summer,2.41
+STU2363,21,Male,3,Humanities,With Family,Night Owl,0.9,5.5,2.3,90,4.8,Laptop,No,3,2,5.0,7,3.0,3.0,15.7,86.3,No,Fall,1.89
+STU2364,19,F,2,Humanities,Off-campus Apartment,Night Owl,0.7,5.6,2.7,71,6.3,Laptop,No,3,0,4.0,5,6.0,8.0,9.6,53.0,No,Fall,1.98
+STU2365,23,Male,1,STEM,Off-campus Apartment,Intermediate,23.5,5.6,2.2,46,6.3,Smartphone,No,1,3,8.0,0,5.0,8.0,17.7,66.0,Yes,Spring,3.04
+STU2366,20,Female,5,Humanities,Dormitory,Early Bird,22.3,8.6,0.5,2,7.5,Laptop,No,4,1,9.0,7,3.0,4.0,9.4,84.5,No,Summer,2.6
+STU2367,25,Male,5,Humanities,Off-campus Apartment,Night Owl,3.1,5.0,1.2,52,8.2,Laptop,No,2,4,3.0,5,5.0,7.0,13.7,69.1,No,Spring,2.26
+STU2368,19,F,3,STEM,With Family,Night Owl,3.3,2.7,2.7,68,7.7,Laptop,Yes,2,2,3.0,5,4.0,10.0,12.6,63.9,No,Spring,3.17
+STU2369,19,M,3,STEM,Off-campus Apartment,Early Bird,21.1,6.9,1.5,29,8.5,Smartphone,Yes,2,3,8.0,0,8.0,5.0,17.5,76.2,No,Fall,2.66
+STU2370,20,Male,4,STEM,Homestay,Early Bird,22.6,6.6,1.5,31,4.3,Laptop,No,0,1,7.0,0,4.0,6.0,18.6,92.8,No,Spring,2.9
+STU2371,21,M,1,Arts,Off-campus Apartment,Early Bird,21.4,7.7,0.3,12,5.0,Smartphone,No,3,1,10.0,2,9.0,6.0,12.7,100.0,No,Fall,3.12
+STU2372,21,Female,2,Social Sciences,Off-campus Apartment,Early Bird,22.7,6.7,1.8,17,3.3,Laptop,No,2,1,7.0,5,9.0,5.0,16.1,72.2,No,Fall,2.7
+STU2373,18,Female,4,Business,With Family,Early Bird,22.1,10.5,-1.0,14,2.3,Laptop,No,0,3,10.0,7,7.0,2.0,25.3,97.6,Yes,Fall,3.91
+STU2374,18,Male,5,Social Sciences,Off-campus Apartment,Night Owl,1.6,4.7,2.0,66,5.4,Smartphone,No,5,0,3.0,2,6.0,5.0,28.4,61.1,Yes,Spring,2.83
+STU2375,17,Male,4,Social Sciences,Dormitory,Night Owl,0.7,3.6,1.5,103,6.0,Tablet,No,0,5,2.0,7,5.0,5.0,29.6,61.7,No,Spring,2.24
+STU2376,18,Female,2,Social Sciences,With Family,Intermediate,22.7,6.4,1.8,56,5.8,Smartphone,No,1,5,6.0,1,10.0,8.0,18.8,75.5,No,Fall,3.13
+STU2377,19,Male,3,STEM,Homestay,Night Owl,3.0,3.7,2.2,98,3.6,Smartphone,No,2,3,2.0,2,4.0,5.0,33.8,79.3,Yes,Fall,2.73
+STU2378,19,Female,4,Health Sciences,With Family,Night Owl,1.3,3.2,1.0,60,7.4,Laptop,Yes,0,6,4.0,6,4.0,10.0,14.8,67.4,No,Spring,2.56
+STU2379,24,Male,1,STEM,Off-campus Apartment,Intermediate,23.3,6.2,2.1,31,7.0,Smartphone,No,2,3,5.0,5,8.0,5.0,13.1,75.6,No,Fall,2.83
+STU2380,21,F,5,Health Sciences,Dormitory,Intermediate,0.8,5.0,1.6,23,6.8,Laptop,No,0,1,6.0,3,4.0,2.0,13.6,73.5,No,Fall,2.71
+STU2381,23,Male,2,STEM,With Family,Early Bird,22.4,8.5,0.7,0,4.4,Smartphone,No,0,1,10.0,1,8.0,1.0,10.7,73.5,No,Fall,3.12
+STU2382,23,Male,3,Health Sciences,Dormitory,Intermediate,23.7,6.4,3.0,37,4.9,Smartphone,No,2,0,8.0,3,,6.0,26.8,79.6,No,Fall,3.36
+STU2383,24,female,1,STEM,Off-campus Apartment,Intermediate,1.5,7.5,0.0,42,6.4,Tablet,No,2,0,8.0,3,10.0,6.0,15.9,96.4,No,Spring,3.44
+STU2384,20,Male,1,Health Sciences,Dormitory,Intermediate,23.7,6.4,2.0,28,7.2,Smartphone,No,1,2,8.0,1,7.0,10.0,23.9,87.9,No,Spring,2.46
+STU2385,22,Female,5,Health Sciences,Off-campus Apartment,Early Bird,22.1,7.9,2.0,13,6.8,Laptop,Yes,0,0,8.0,7,7.0,6.0,25.3,77.7,No,Spring,2.77
+STU2386,20,Male,5,STEM,Dormitory,Night Owl,23.3,5.2,2.5,84,8.3,Laptop,No,0,0,4.0,7,5.0,10.0,14.0,87.3,No,Fall,2.49
+STU2387,22,Female,5,STEM,Dormitory,Early Bird,22.3,5.9,0.6,32,5.3,Laptop,Yes,0,2,8.0,7,7.0,4.0,13.9,53.5,No,Spring,2.25
+STU2388,23,Female,1,Business,Off-campus Apartment,Early Bird,22.5,6.1,1.2,56,5.0,Tablet,No,1,2,4.0,2,6.0,6.0,6.0,68.5,No,Fall,2.39
+STU2389,22,Prefer not to say,4,Law,With Family,Intermediate,0.3,7.9,0.9,0,7.6,Smartphone,No,1,0,7.0,2,6.0,6.0,23.2,98.2,No,Fall,3.07
+STU2390,18,Male,2,Business,With Family,Night Owl,0.7,8.1,1.3,62,6.4,Smartphone,No,1,0,9.0,1,6.0,5.0,4.9,83.5,No,Fall,2.83
+STU2391,18,Female,4,Social Sciences,Dormitory,Intermediate,22.1,6.4,1.8,54,2.6,Tablet,Yes,1,2,7.0,0,5.0,2.0,18.2,66.1,Yes,Summer,2.57
+STU2392,20,Male,4,Law,With Family,Night Owl,2.1,5.0,1.6,54,3.1,Laptop,,0,4,3.0,5,8.0,5.0,15.3,84.2,No,Fall,2.33
+STU2393,21,Female,4,Humanities,With Family,Intermediate,0.2,6.0,1.8,42,2.0,Smartphone,No,1,1,4.0,3,6.0,6.0,13.1,68.2,No,Spring,2.46
+STU2394,17,Prefer not to say,2,Business,Dormitory,Night Owl,0.7,5.3,0.5,68,4.9,Laptop,No,0,1,6.0,2,7.0,9.0,12.9,77.1,Yes,Fall,2.61
+STU2395,24,Male,3,Humanities,Off-campus Apartment,Early Bird,0.9,6.2,2.8,21,3.1,Laptop,No,0,2,9.0,3,5.0,8.0,8.8,82.0,No,Spring,3.3
+STU2396,18,female,1,Business,With Family,Early Bird,22.7,6.1,1.4,30,6.6,Laptop,No,1,1,7.0,6,3.0,4.0,18.1,68.3,Yes,Fall,2.85
+STU2397,17,Female,4,STEM,Dormitory,Early Bird,23.5,4.8,2.6,43,10.8,Smartphone,No,2,1,7.0,7,4.0,9.0,17.3,70.4,No,Spring,3.05
+STU2398,20,Male,3,STEM,Dormitory,Early Bird,21.7,6.3,0.7,37,5.8,Smartphone,No,0,4,8.0,1,5.0,8.0,13.7,87.8,No,Fall,2.85
+STU2399,23,Male,2,Humanities,Dormitory,Intermediate,23.4,7.7,2.5,39,2.6,Smartphone,No,1,0,8.0,6,,5.0,13.4,74.8,No,Fall,2.59
+STU2400,20,Female,2,Business,With Family,Intermediate,21.9,6.0,2.0,47,7.1,Tablet,No,1,3,5.0,3,7.0,10.0,22.7,96.3,Yes,Fall,2.78
+STU2401,23,Male,5,STEM,Dormitory,Intermediate,23.7,7.9,0.4,38,3.3,Laptop,No,0,2,8.0,6,8.0,2.0,11.9,73.7,Yes,Spring,2.61
+STU2402,25,Prefer not to say,2,STEM,Dormitory,Night Owl,3.0,7.6,1.3,67,3.0,Laptop,No,2,0,5.0,5,5.0,2.0,17.6,61.2,Yes,Summer,2.72
+STU2403,19,Male,3,STEM,Dormitory,Intermediate,22.7,5.7,0.3,34,6.3,Laptop,No,3,3,5.0,2,9.0,7.0,21.4,69.7,No,Summer,2.48
+STU2404,22,Male,3,STEM,Off-campus Apartment,Early Bird,23.2,8.8,1.3,39,5.6,Smartphone,No,0,0,8.0,4,7.0,4.0,10.9,86.7,No,Spring,3.2
+STU2405,21,M,5,Social Sciences,Dormitory,Intermediate,0.2,6.0,2.4,56,7.5,Laptop,Yes,2,4,6.0,7,5.0,6.0,11.5,71.6,Yes,Fall,2.55
+STU2406,20,Male,2,Law,Off-campus Apartment,Early Bird,23.0,6.1,1.6,16,7.7,Smartphone,No,1,2,8.0,2,5.0,7.0,12.4,100.0,No,Spring,2.7
+STU2407,22,Female,2,Business,Homestay,Night Owl,22.9,7.9,0.9,40,9.1,Laptop,No,2,1,9.0,3,7.0,5.0,13.9,61.2,No,Fall,3.39
+STU2408,18,Female,1,STEM,Off-campus Apartment,Early Bird,22.8,9.0,1.5,23,7.7,Smartphone,No,1,2,10.0,3,7.0,6.0,12.7,85.9,No,Spring,2.47
+STU2409,20,Male,3,Law,Off-campus Apartment,Intermediate,0.3,7.2,3.1,35,7.4,Laptop,No,0,2,7.0,7,5.0,6.0,18.9,87.6,Yes,Fall,2.84
+STU2410,19,Female,4,Social Sciences,Off-campus Apartment,Intermediate,23.4,7.9,0.3,32,4.5,Laptop,No,1,1,10.0,0,8.0,6.0,16.2,90.8,No,Spring,3.01
+STU2411,22,Male,5,Business,Dormitory,Intermediate,22.2,6.1,2.4,32,4.7,Smartphone,No,0,1,7.0,4,4.0,7.0,26.0,66.8,No,Summer,2.92
+STU2412,21,M,4,Business,Dormitory,Intermediate,1.1,6.4,1.4,24,7.3,Smartphone,No,2,1,7.0,5,7.0,5.0,16.1,62.0,No,Summer,3.15
+STU2413,20,Non-binary,3,STEM,With Family,Night Owl,23.5,3.4,1.9,46,5.4,Smartphone,No,5,5,3.0,0,2.0,5.0,17.0,71.8,No,Spring,2.31
+STU2414,22,Female,3,Health Sciences,Off-campus Apartment,Intermediate,1.5,8.9,0.2,30,2.4,Smartphone,No,2,3,10.0,7,7.0,4.0,22.0,91.0,No,Fall,2.86
+STU2415,20,Female,2,Social Sciences,Off-campus Apartment,Intermediate,0.0,6.2,2.3,40,8.2,Smartphone,No,0,3,10.0,4,4.0,4.0,7.7,91.4,Yes,Fall,2.65
+STU2416,22,Female,1,Business,With Family,Early Bird,22.0,6.8,0.6,14,4.6,Smartphone,No,5,0,9.0,4,7.0,5.0,11.7,86.5,No,Spring,2.67
+STU2417,20,Female,1,Social Sciences,Dormitory,Night Owl,1.8,4.9,2.4,81,11.4,Tablet,No,1,3,5.0,0,3.0,10.0,8.5,70.5,Yes,Spring,2.34
+STU2418,21,Female,1,Health Sciences,Dormitory,Intermediate,0.9,8.3,1.4,31,5.8,Tablet,Yes,2,2,10.0,7,,4.0,18.3,81.6,No,Fall,3.32
+STU2419,21,Male,3,Humanities,Off-campus Apartment,Intermediate,22.8,5.1,2.0,2,6.0,Laptop,No,1,2,6.0,1,5.0,4.0,13.4,57.5,No,Fall,2.88
+STU2420,24,female,4,STEM,Dormitory,Intermediate,23.5,6.4,1.8,26,3.1,Laptop,No,2,1,8.0,4,7.0,5.0,11.8,66.9,No,Spring,2.96
+STU2421,18,Male,2,Arts,Off-campus Apartment,Night Owl,0.6,6.7,1.0,7,5.1,Smartphone,Yes,2,0,7.0,5,8.0,6.0,7.6,73.8,No,Spring,2.61
+STU2422,22,Female,1,Business,Dormitory,Night Owl,0.3,5.2,0.4,59,7.0,Laptop,No,2,0,6.0,5,7.0,,17.1,81.8,No,Fall,2.78
+STU2423,20,Female,4,Social Sciences,Off-campus Apartment,Night Owl,23.6,7.3,1.8,51,7.3,Laptop,No,3,1,9.0,1,6.0,3.0,26.4,92.5,Yes,Fall,3.44
+STU2424,17,Male,1,Humanities,Dormitory,Early Bird,23.4,9.0,1.9,25,4.0,Smartphone,Yes,1,0,10.0,4,3.0,5.0,16.9,67.3,Yes,Fall,2.99
+STU2425,22,M,5,Social Sciences,Off-campus Apartment,Intermediate,22.3,7.9,0.6,0,5.4,Laptop,No,2,1,9.0,3,7.0,5.0,17.2,59.5,No,Summer,3.17
+STU2426,20,Male,5,Humanities,Off-campus Apartment,Night Owl,2.0,3.7,1.3,48,4.7,Laptop,Yes,3,7,3.0,0,1.0,5.0,26.0,62.8,No,Spring,2.75
+STU2427,21,Male,5,Health Sciences,Off-campus Apartment,Night Owl,1.8,4.4,2.9,66,8.4,Laptop,No,2,1,4.0,2,4.0,,4.0,34.6,Yes,Summer,
+STU2428,21,Male,3,Humanities,Dormitory,Intermediate,0.4,6.4,0.6,39,3.1,Laptop,No,0,2,8.0,6,7.0,7.0,28.7,72.8,No,Summer,2.81
+STU2429,21,Female,1,Social Sciences,Off-campus Apartment,Intermediate,0.7,7.5,1.8,44,7.2,Tablet,No,2,4,6.0,1,2.0,4.0,4.5,94.4,No,Spring,3.18
+STU2430,20,Male,4,Business,Dormitory,Early Bird,22.3,6.7,2.5,10,5.5,Smartphone,No,1,1,7.0,3,6.0,5.0,15.7,70.9,Yes,Summer,2.64
+STU2431,25,female,1,Arts,Dormitory,Intermediate,24.0,9.0,1.4,38,6.8,Smartphone,No,0,1,10.0,1,6.0,1.0,8.0,76.9,No,Fall,2.87
+STU2432,22,Male,5,STEM,Off-campus Apartment,Early Bird,21.9,6.9,0.1,8,6.1,Smartphone,No,2,1,8.0,6,7.0,3.0,22.4,81.4,Yes,Summer,3.1
+STU2433,21,Female,3,Social Sciences,Dormitory,Intermediate,0.4,4.7,0.9,29,5.3,Smartphone,Yes,3,3,8.0,0,4.0,3.0,15.6,69.8,No,Fall,2.54
+STU2434,19,Female,4,STEM,Dormitory,Intermediate,23.4,6.8,1.3,24,7.4,Smartphone,No,1,3,8.0,1,9.0,6.0,14.3,84.9,No,Fall,3.18
+STU2435,20,Male,3,Social Sciences,With Family,Night Owl,0.3,7.9,1.4,72,5.3,Smartphone,Yes,1,0,8.0,4,3.0,4.0,8.4,84.9,No,Fall,2.7
+STU2436,24,Female,5,STEM,Off-campus Apartment,Early Bird,22.6,7.5,1.3,0,7.1,Smartphone,No,1,0,9.0,5,7.0,5.0,17.8,83.3,Yes,Fall,2.34
+STU2437,17,Male,3,STEM,Dormitory,Night Owl,3.2,4.7,3.0,6,8.5,Laptop,No,4,2,6.0,2,8.0,7.0,9.0,93.9,No,Spring,2.71
+STU2438,22,Male,2,STEM,Off-campus Apartment,Early Bird,0.4,7.4,1.4,30,4.4,Smartphone,Yes,1,0,7.0,1,7.0,5.0,14.3,72.1,No,Fall,3.08
+STU2439,19,male,2,STEM,Dormitory,Night Owl,2.4,5.6,3.5,39,7.5,Smartphone,No,3,2,7.0,7,3.0,6.0,23.4,75.6,No,Fall,2.89
+STU2440,21,Male,5,Humanities,Off-campus Apartment,Early Bird,23.6,7.9,0.6,5,5.8,Laptop,No,0,0,10.0,6,7.0,2.0,23.0,66.9,Yes,Fall,3.1
+STU2441,21,Female,2,Social Sciences,Dormitory,Intermediate,0.1,6.4,3.0,32,6.3,Tablet,No,1,1,9.0,2,6.0,8.0,13.1,64.2,Yes,Spring,2.62
+STU2442,23,Female,1,Business,Dormitory,Early Bird,22.8,7.8,2.8,36,8.8,Smartphone,Yes,2,2,9.0,0,8.0,5.0,17.9,98.2,No,Fall,2.86
+STU2443,19,Female,5,Business,Off-campus Apartment,Night Owl,1.7,5.2,2.0,42,6.6,Laptop,No,1,1,4.0,6,8.0,4.0,10.0,71.1,No,Fall,2.4
+STU2444,21,Male,5,STEM,Dormitory,Night Owl,23.9,5.7,1.4,27,3.9,Smartphone,No,5,3,6.0,4,2.0,5.0,14.3,88.5,Yes,Spring,2.41
+STU2445,20,Female,1,Social Sciences,With Family,Night Owl,0.6,5.7,3.1,72,5.7,Laptop,No,1,1,5.0,6,6.0,1.0,11.9,67.5,No,Fall,2.41
+STU2446,20,Female,5,STEM,With Family,Early Bird,22.7,7.2,0.4,17,3.3,Smartphone,No,2,0,10.0,1,10.0,4.0,22.0,88.6,Yes,Spring,2.87
+STU2447,24,female,1,Social Sciences,Dormitory,Night Owl,23.3,8.4,1.4,65,5.6,Tablet,No,0,1,9.0,3,6.0,2.0,13.2,82.5,No,Summer,2.5
+STU2448,20,Prefer not to say,2,STEM,With Family,Night Owl,2.0,4.0,1.6,59,5.2,Smartphone,No,1,2,2.0,3,4.0,7.0,15.1,86.1,Yes,Summer,2.54
+STU2449,20,Female,1,Social Sciences,Dormitory,Early Bird,23.2,8.5,0.4,14,5.3,Smartphone,Yes,2,1,10.0,2,5.0,6.0,9.7,83.1,Yes,Fall,3.11
+STU2450,17,Male,2,Health Sciences,With Family,Night Owl,1.1,4.6,3.1,28,19.5,Smartphone,No,5,0,3.0,5,3.0,7.0,17.7,76.8,Yes,Fall,2.25
+STU2451,17,Female,5,Humanities,Dormitory,Early Bird,0.2,7.8,0.9,30,4.7,Smartphone,Yes,1,1,10.0,7,9.0,4.0,9.4,71.8,Yes,Spring,2.99
+STU2452,20,Female,4,Health Sciences,Dormitory,Intermediate,0.3,6.6,3.2,33,3.8,Laptop,Yes,1,2,6.0,0,4.0,5.0,15.3,85.9,No,Fall,2.45
+STU2453,18,Male,3,Humanities,With Family,Intermediate,0.9,6.4,1.0,0,7.2,Tablet,No,1,2,9.0,7,8.0,5.0,22.9,69.4,No,Spring,3.03
+STU2454,19,Male,1,Business,Off-campus Apartment,Intermediate,23.9,5.7,1.7,57,5.3,Laptop,No,1,1,7.0,3,4.0,4.0,5.5,81.0,No,Spring,2.31
+STU2455,17,Non-binary,1,STEM,Off-campus Apartment,Intermediate,22.2,7.1,0.6,47,7.3,Smartphone,Yes,3,1,7.0,0,7.0,,13.5,89.5,No,Spring,2.27
+STU2456,23,Female,4,Humanities,With Family,Night Owl,3.4,4.5,1.3,41,8.2,Laptop,Yes,0,0,7.0,2,7.0,7.0,10.4,58.8,No,Spring,2.16
+STU2457,18,Female,5,Business,With Family,Night Owl,1.0,5.4,1.7,69,6.9,Smartphone,No,3,5,5.0,1,5.0,5.0,22.8,79.1,No,Summer,2.98
+STU2458,20,Male,4,STEM,Dormitory,Night Owl,0.5,6.1,3.3,57,7.5,Smartphone,No,1,3,6.0,0,6.0,8.0,11.1,85.0,No,Spring,2.71
+STU2459,22,Female,4,Social Sciences,Off-campus Apartment,Night Owl,1.4,6.1,2.9,46,7.0,Smartphone,No,3,5,7.0,2,7.0,8.0,21.2,68.0,Yes,Fall,2.78
+STU2460,21,Male,4,Business,Dormitory,Early Bird,22.1,8.9,0.6,32,3.4,Smartphone,No,3,3,8.0,2,8.0,2.0,17.6,88.2,No,Fall,3.05
+STU2461,18,Male,5,STEM,Dormitory,Early Bird,21.9,9.0,1.9,72,8.2,Laptop,Yes,2,0,7.0,1,7.0,2.0,16.4,88.0,No,Spring,2.84
+STU2462,17,Male,3,Humanities,Off-campus Apartment,Intermediate,1.5,5.7,1.9,46,8.0,Smartphone,No,0,2,7.0,4,8.0,8.0,14.7,61.7,Yes,Fall,2.44
+STU2463,20,F,4,Health Sciences,With Family,Night Owl,2.5,6.7,-0.2,55,7.4,Laptop,Yes,3,3,5.0,7,5.0,4.0,88.5,85.1,No,Summer,2.5
+STU2464,20,Female,5,Social Sciences,With Family,Intermediate,22.9,6.4,0.4,75,5.3,Smartphone,No,1,1,6.0,7,6.0,5.0,29.6,95.9,No,Spring,3.06
+STU2465,19,Female,3,STEM,With Family,Early Bird,22.1,7.0,3.1,25,6.8,Smartphone,No,0,1,10.0,7,7.0,5.0,20.2,81.7,Yes,Fall,2.92
+STU2466,18,Female,3,Business,Dormitory,Early Bird,22.3,7.5,3.3,5,5.6,Laptop,No,1,1,7.0,1,5.0,3.0,9.7,77.8,No,Spring,2.77
+STU2467,20,Female,4,Business,Homestay,Early Bird,22.5,8.9,1.5,52,8.1,Laptop,No,0,0,10.0,4,8.0,2.0,18.1,65.8,Yes,Fall,2.64
+STU2468,18,Female,3,Humanities,Dormitory,Night Owl,1.7,4.0,3.3,54,7.9,Laptop,No,1,2,4.0,5,4.0,9.0,10.7,70.5,No,Spring,2.29
+STU2469,19,Female,2,Arts,Off-campus Apartment,Night Owl,23.7,6.4,1.2,63,6.7,Smartphone,No,1,2,4.0,6,8.0,5.0,7.5,88.5,No,Spring,2.48
+STU2470,20,Female,2,Social Sciences,With Family,Intermediate,22.0,7.5,3.5,38,5.0,Laptop,No,1,1,7.0,2,6.0,4.0,9.6,87.8,No,Fall,2.43
+STU2471,20,Female,4,STEM,Dormitory,Early Bird,20.6,8.3,0.7,21,5.4,Smartphone,Yes,1,0,9.0,4,9.0,6.0,24.4,75.3,Yes,Spring,3.03
+STU2472,17,Male,1,STEM,Dormitory,Intermediate,22.9,6.8,1.6,56,6.2,Laptop,No,2,1,8.0,4,6.0,5.0,21.2,76.3,No,Spring,3.09
+STU2473,24,Male,1,Humanities,With Family,Early Bird,22.6,7.4,2.3,2,9.7,Tablet,No,2,1,10.0,0,5.0,5.0,19.1,95.8,No,Fall,3.01
+STU2474,23,Female,1,Arts,Off-campus Apartment,Intermediate,0.3,6.4,1.4,6,4.9,Smartphone,No,0,1,8.0,6,6.0,4.0,16.4,74.8,Yes,Fall,2.83
+STU2475,18,Female,3,Health Sciences,Off-campus Apartment,Night Owl,1.0,5.1,2.6,37,4.4,Smartphone,No,0,3,7.0,2,9.0,6.0,22.3,81.7,No,Fall,2.91
+STU2476,24,Male,1,Arts,Dormitory,Early Bird,22.4,8.2,1.2,4,4.5,Laptop,No,0,2,10.0,4,8.0,5.0,11.4,89.4,No,Summer,2.99
+STU2477,21,Female,1,Arts,With Family,Early Bird,23.3,5.8,2.6,1,8.4,Smartphone,No,0,1,8.0,0,5.0,4.0,6.7,74.2,No,Spring,2.84
+STU2478,19,Female,3,Social Sciences,Dormitory,Intermediate,23.8,5.4,2.0,13,4.0,Tablet,,2,1,7.0,4,5.0,6.0,2.2,61.8,No,Fall,2.0
+STU2479,18,Male,4,Business,Dormitory,Intermediate,23.3,9.9,0.1,16,7.4,Laptop,No,2,2,10.0,6,8.0,4.0,13.2,96.6,No,Fall,2.88
+STU2480,20,female,2,Business,Dormitory,Night Owl,3.9,7.7,1.2,5,7.3,Smartphone,No,1,0,10.0,5,5.0,7.0,22.1,82.7,Yes,Spring,2.73
+STU2481,19,Female,2,Arts,Homestay,Early Bird,0.6,9.0,-0.0,24,8.9,Laptop,No,1,1,10.0,3,4.0,5.0,11.5,72.2,Yes,Fall,2.99
+STU2482,19,Female,1,Business,Off-campus Apartment,Night Owl,1.3,5.6,2.0,29,5.8,Smartphone,No,0,0,7.0,6,3.0,7.0,27.7,92.3,Yes,Spring,2.88
+STU2483,19,male,4,Health Sciences,Dormitory,Intermediate,0.1,7.4,1.4,33,9.2,Laptop,No,1,1,8.0,3,,7.0,14.4,72.7,No,Spring,2.85
+STU2484,22,Female,1,Humanities,Dormitory,Intermediate,21.2,7.0,0.9,31,4.2,Laptop,No,2,1,7.0,2,6.0,3.0,21.0,64.8,No,Spring,2.76
+STU2485,19,M,5,STEM,Off-campus Apartment,Intermediate,21.9,6.8,0.5,21,6.1,Smartphone,No,1,0,10.0,1,9.0,6.0,21.8,76.9,Yes,Spring,3.14
+STU2486,21,Male,2,Humanities,Off-campus Apartment,Early Bird,22.4,8.2,1.1,17,2.6,Laptop,Yes,0,0,10.0,3,6.0,3.0,16.6,100.0,No,Spring,2.95
+STU2487,17,female,1,STEM,With Family,Night Owl,1.3,4.9,2.1,35,7.9,Smartphone,Yes,2,3,5.0,7,4.0,6.0,20.3,62.6,No,Spring,2.87
+STU2488,20,female,4,STEM,Off-campus Apartment,Night Owl,2.5,5.0,1.4,79,4.7,Smartphone,No,2,4,7.0,1,5.0,5.0,21.6,74.4,No,Fall,2.6
+STU2489,20,Female,2,Health Sciences,Dormitory,Early Bird,23.7,6.7,1.0,25,3.8,Smartphone,No,4,0,5.0,3,9.0,3.0,3.3,74.0,No,Spring,2.77
+STU2490,20,female,3,Business,Dormitory,Night Owl,1.4,8.4,2.4,49,6.2,Smartphone,No,3,1,9.0,5,7.0,4.0,12.6,74.6,No,Spring,2.89
+STU2491,23,Male,4,STEM,Dormitory,Intermediate,0.1,8.9,1.6,43,7.2,Smartphone,Yes,4,1,8.0,1,4.0,1.0,8.3,94.9,Yes,Spring,3.19
+STU2492,21,Male,4,Business,Off-campus Apartment,Night Owl,0.8,5.8,2.1,61,7.0,Smartphone,No,1,1,7.0,4,5.0,4.0,20.2,61.8,Yes,Fall,2.97
+STU2493,18,Male,3,Social Sciences,Dormitory,Night Owl,2.1,5.3,1.3,53,6.3,Smartphone,No,2,0,6.0,6,4.0,6.0,5.5,83.5,No,Spring,2.09
+STU2494,17,Female,1,STEM,Off-campus Apartment,Night Owl,1.9,5.7,1.8,56,6.4,Laptop,Yes,3,3,5.0,2,1.0,7.0,14.6,77.9,No,Summer,2.7
+STU2495,21,Female,3,Social Sciences,Off-campus Apartment,Early Bird,22.4,8.5,1.5,7,4.1,Smartphone,Yes,2,0,8.0,0,4.0,2.0,22.1,69.1,No,Fall,3.06
+STU2496,18,Male,4,Humanities,Dormitory,Intermediate,22.5,7.5,0.4,37,5.0,Smartphone,Yes,2,0,8.0,4,7.0,4.0,10.1,90.8,No,Fall,3.21
+STU2497,22,Male,2,Health Sciences,Dormitory,Night Owl,0.8,6.2,2.4,34,6.4,Smartphone,No,2,2,10.0,4,6.0,5.0,17.2,70.7,No,Spring,2.87
+STU2498,20,Female,5,Health Sciences,With Family,Early Bird,22.0,7.1,1.1,4,5.7,Laptop,No,0,3,10.0,1,8.0,2.0,21.7,79.8,No,Spring,3.54
+STU2499,22,M,3,STEM,Dormitory,Early Bird,23.6,9.0,2.3,26,5.8,Laptop,No,1,0,10.0,7,7.0,1.0,19.3,97.8,Yes,Spring,3.67
+STU2500,19,Female,4,STEM,Off-campus Apartment,Night Owl,3.3,6.7,1.2,83,6.4,Laptop,No,0,0,6.0,1,,,23.7,81.3,No,Fall,2.55
