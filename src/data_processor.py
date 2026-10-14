@@ -26,9 +26,7 @@ def inspect_data(df: pd.DataFrame):
     print(f"\nNumber of rows with missing values: {df.isna().any(axis=1).sum()}")
     df = handle_missing(df)
     print(f"\nDataset size after handling missing values: {df.shape[0]}")
-    df = remove_outliers(df, "weekly_study_hours")
-    df = remove_outliers(df, "avg_sleep_hours_weekday")
-    df = remove_outliers(df, "pre_sleep_screen_time_min")
+    df = remove_outliers(df)
     print(f"\nDataset size after removing outliers: {df.shape[0]}")
 
 def handle_missing(df: pd.DataFrame) -> pd.DataFrame:
@@ -37,12 +35,17 @@ def handle_missing(df: pd.DataFrame) -> pd.DataFrame:
     # than to try to extrapolate missing data which could lead to inaccuracy
     return df.dropna()
 
-# Remove outlier weekly_study_hours
-# Remove outlier avg_sleep_hours_weekday
-# Remove outlier pre_sleep_screen_time_min
-def remove_outliers(df: pd.DataFrame, column_name: str, z_score_threshold = 3.0) -> pd.DataFrame:
-    zscores = np.abs(stats.zscore(df[column_name]))
-    return df[zscores < z_score_threshold]
+def remove_outliers(df: pd.DataFrame, z_score_threshold: float = 3.0) -> pd.DataFrame:
+    numeric_cols = df.select_dtypes(include="number").columns
+    keep_mask = pd.Series(True, index=df.index)
+
+    for col in numeric_cols:
+        zscores = np.abs(stats.zscore(df[col], nan_policy="omit"))
+        zscores = pd.Series(zscores, index=df.index)  # realign to df's index
+
+        is_outlier = zscores >= z_score_threshold
+        keep_mask &= ~is_outlier
+    return df[keep_mask]
 
 if __name__ == '__main__':
     df = load_data_file()
