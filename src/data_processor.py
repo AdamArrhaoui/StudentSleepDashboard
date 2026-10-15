@@ -71,6 +71,17 @@ class DataProcessor:
         self.data.drop_duplicates(inplace=True)
         return self
 
+    def scale_custom_ranges(self, column_scale_ranges: dict[str,list[int]]) -> Self:
+        """minmax scales columns with custom defined ranges.
+        column_scale_ranges is a dict of column names to scale ranges.
+        For example, passing in {"rating": [1,10], "age": [0,100]} will scale the rating column from 1-10, and the age column from 0-100
+        """
+        for column in column_scale_ranges.keys():
+            scaler = MinMaxScaler()
+            scaler.fit(pd.DataFrame({column:column_scale_ranges[column]}))
+            self.data[column] = scaler.transform(self.data[[column]])
+        return self
+
     def scale_minmax(self, columns: list[str]) -> Self:
         scaler = MinMaxScaler()
         self.data[columns] = scaler.fit_transform(self.data[columns])
