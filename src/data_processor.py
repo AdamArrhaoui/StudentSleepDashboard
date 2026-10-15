@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import os
 from scipy import stats
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 RAW_DATA_PATH = "../data/raw/student_sleep_screen_time_academic_performance.csv"
 
@@ -24,6 +25,7 @@ class DataProcessor:
         return self
 
     def inspect_data(self) -> Self:
+        pd.set_option('display.max_columns', None)
         df = self.data
         print(f"Data loaded:")
         print(df.head())
@@ -59,6 +61,28 @@ class DataProcessor:
             is_outlier = zscores >= z_score_threshold
             keep_mask &= ~is_outlier
         self.data = df[keep_mask]
+        return self
+
+    def select_columns(self, columns: list[str]) -> Self:
+        self.data = self.data[columns]
+        return self
+
+    def remove_duplicates(self) -> Self:
+        self.data.drop_duplicates(inplace=True)
+        return self
+
+    def scale_minmax(self, columns: list[str]) -> Self:
+        scaler = MinMaxScaler()
+        self.data[columns] = scaler.fit_transform(self.data[columns])
+        return self
+
+    def scale_standard(self, columns: list[str]) -> Self:
+        scaler = StandardScaler()
+        self.data[columns] = scaler.fit_transform(self.data[columns])
+        return self
+
+    def onehot_encode(self, columns: list[str]) -> Self:
+        self.data = pd.get_dummies(self.data, columns=columns, dtype=int)
         return self
 
 if __name__ == '__main__':
