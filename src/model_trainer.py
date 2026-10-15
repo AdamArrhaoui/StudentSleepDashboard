@@ -2,6 +2,7 @@ import os.path
 
 from sklearn.linear_model import LinearRegression
 import pandas as pd
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 PROCESSED_DATASET_PATH = "../data/processed/"
 
@@ -32,7 +33,22 @@ class ModelTrainer:
         self.validation_data = pd.read_csv(training_path)
         self.testing_data = pd.read_csv(training_path)
 
+    def train_model(self):
+        self.model = LinearRegression()
+
+        X_train = self.training_data.drop(["cgpa"], axis=1)
+        y_train = self.training_data["cgpa"]
+        X_test = self.validation_data.drop(["cgpa"], axis=1)
+        y_test = self.validation_data["cgpa"]
+        self.model.fit(X_train, y_train)
+
+        y_pred = self.model.predict(X_test)
+
+        print("MAE :", mean_absolute_error(y_test, y_pred))
+        print("RMSE:", mean_squared_error(y_test, y_pred) ** 0.5)
+        print("R2  :", r2_score(y_test, y_pred))
+
 if __name__ == '__main__':
     trainer = ModelTrainer()
     trainer.load_datasets(PROCESSED_DATASET_PATH)
-    print(trainer.testing_data.head())
+    trainer.train_model()
