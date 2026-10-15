@@ -4,9 +4,11 @@ import pandas as pd
 import numpy as np
 import os
 from scipy import stats
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 RAW_DATA_PATH = "../data/raw/student_sleep_screen_time_academic_performance.csv"
+PROCESSED_DATA_PATH = "../data/processed/"
 
 class DataProcessor:
     """Loads, processes, and saves a dataset to be used for linear regression"""
@@ -22,6 +24,35 @@ class DataProcessor:
             if not os.path.exists(path):
                 raise FileNotFoundError(f"Path {path} does not exist!")
         self.data = pd.read_csv(path)
+        return self
+
+    def split_and_save_data(self, save_folder_path: str, train_frac: float = 0.70,
+                val_frac: float = 0.15,
+                test_frac: float = 0.15,
+                random_state: int = 42) -> Self:
+        # make sure fractions add up to 1
+        assert abs(train_frac + val_frac + test_frac - 1.0) < 1e-9, "Fractions must sum to 1"
+        # ensure save folder paths
+        if not os.path.exists(save_folder_path):
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            save_folder_path = os.path.join(script_dir, save_folder_path)
+        if not os.path.exists(save_folder_path):
+            os.makedirs(save_folder_path)
+        # split off the training set. everything else goes into a temporary holdout
+        train_df, holdout_df = train_test_split(
+            self.data, train_size=train_frac, random_state=random_state, shuffle=True
+        )
+        # split the holdout into validation and test
+        # (the test share of the holdout is test_frac / (val_frac + test_frac), i.e. 0.5 for 15/15)
+        test_share = test_frac / (val_frac + test_frac)
+        val_df, test_df = train_test_split(
+            holdout_df, test_size=test_share, random_state=random_state
+        )
+        # save datasets
+        train_df.to_csv(os.path.join(save_folder_path, "train.csv"), index=False)
+        val_df.to_csv(os.path.join(save_folder_path, "validation.csv"), index=False)
+        test_df.to_csv(os.path.join(save_folder_path, "test.csv"), index=False)
+        print(f"Datasets have been saved to {os.path.abspath(save_folder_path)}")
         return self
 
     def inspect_data(self) -> Self:
@@ -92,10 +123,11 @@ class DataProcessor:
         self.data = pd.get_dummies(self.data, columns=columns, dtype=int)
         return self
 
-def run_processing_pipeline(input_file=RAW_DATA_PATH):
+def run_processing_pipeline(input_file=RAW_DATA_PATH, output_folder=PROCESSED_DATA_PATH, verbose: bool = False):
      processor = DataProcessor(input_file)
-     print("###### PRE-PROCESSED DATA ######")
-     processor.inspect_data()
+     if verbose:
+        print("###### PRE-PROCESSED DATA ######")
+        processor.inspect_data()
      # we don't need the student id column, and gender column should be avoided to remove a potential source of bias
      processor.drop_columns(["student_id", "gender"])
      # now that student_id is gone, we can remove the duplicate values
@@ -121,9 +153,11 @@ def run_processing_pipeline(input_file=RAW_DATA_PATH):
      })
      # we apply one-hot encoding to categorical attributes
      processor.onehot_encode(["major_category", "residence_type", "chronotype", "primary_device", "device_free_before_bed", "has_part_time_job", "semester_type"])
-     print("######   PROCESSED DATA   ######")
-     processor.inspect_data()
+     if verbose:
+        print("######   PROCESSED DATA   ######")
+        processor.inspect_data()
+     processor.split_and_save_data(output_folder)
 
 if __name__ == '__main__':
-    run_processing_pipeline(RAW_DATA_PATH)
+    run_processing_pipeline(RAW_DATA_PATH, PROCESSED_DATA_PATH, verbose=True)
 
