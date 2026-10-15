@@ -63,8 +63,8 @@ class DataProcessor:
         self.data = df[keep_mask]
         return self
 
-    def select_columns(self, columns: list[str]) -> Self:
-        self.data = self.data[columns]
+    def drop_columns(self, columns: list[str]) -> Self:
+        self.data.drop(columns, axis=1, inplace=True)
         return self
 
     def remove_duplicates(self) -> Self:
