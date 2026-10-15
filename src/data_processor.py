@@ -15,7 +15,7 @@ class DataProcessor:
     def __init__(self, path=RAW_DATA_PATH):
         self.load_data_file(path)
 
-    def load_data_file(self, path=RAW_DATA_PATH) -> Self:
+    def load_data_file(self, path: str) -> Self:
         if not os.path.exists(path):
             script_dir = os.path.dirname(os.path.abspath(__file__))
             path = os.path.join(script_dir, path)
@@ -36,10 +36,6 @@ class DataProcessor:
         print("\nMissing values:")
         print(df.isna().sum())
         print(f"\nNumber of rows with missing values: {df.isna().any(axis=1).sum()}")
-        #df = handle_missing(df)
-        #print(f"\nDataset size after handling missing values: {df.shape[0]}")
-        #df = remove_outliers(df)
-        #print(f"\nDataset size after removing outliers: {df.shape[0]}")
         return self
 
     def handle_missing(self) -> Self:
@@ -96,6 +92,38 @@ class DataProcessor:
         self.data = pd.get_dummies(self.data, columns=columns, dtype=int)
         return self
 
+def run_processing_pipeline(input_file=RAW_DATA_PATH):
+     processor = DataProcessor(input_file)
+     print("###### PRE-PROCESSED DATA ######")
+     processor.inspect_data()
+     # we don't need the student id column, and gender column should be avoided to remove a potential source of bias
+     processor.drop_columns(["student_id", "gender"])
+     # now that student_id is gone, we can remove the duplicate values
+     processor.remove_duplicates()
+     # we drop rows with missing values because there are not that many of them
+     processor.handle_missing()
+     # we remove columns with extreme outliers values that are over 3 standard deviations away from the mean value
+     processor.remove_outliers(3.0)
+     # we apply standard scaler to columns that don't have a pre-defined minimum and/or maximum value
+     processor.scale_standard(["age", "year_of_study", "weekend_sleep_delta_hours", "pre_sleep_screen_time_min", "caffeine_drinks_per_day", "naps_per_week", "weekly_study_hours"])
+     # we apply minmax scaler to columns with a well-defined min and max
+     processor.scale_minmax(["avg_bedtime_hour"])
+     # we apply custom minmax scaling ranges to columns with strict ranges (hours in a day/days in a week, 0-10 ratings, cgpa, etc)
+     processor.scale_custom_ranges({
+         "avg_sleep_hours_weekday": [0,24],
+         "daily_screen_time_hours": [0,24],
+         "sleep_quality_score": [0,10],
+         "exercise_days_per_week": [0,7],
+         "energy_level": [0,10],
+         "concentration_difficulty": [0,10],
+         "class_attendance_percent": [0,100],
+         "cgpa": [0,4]
+     })
+     # we apply one-hot encoding to categorical attributes
+     processor.onehot_encode(["major_category", "residence_type", "chronotype", "primary_device", "device_free_before_bed", "has_part_time_job", "semester_type"])
+     print("######   PROCESSED DATA   ######")
+     processor.inspect_data()
+
 if __name__ == '__main__':
-    processor = DataProcessor()
-    processor.inspect_data()
+    run_processing_pipeline(RAW_DATA_PATH)
+
