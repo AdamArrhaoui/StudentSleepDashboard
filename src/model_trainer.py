@@ -1,5 +1,7 @@
 import os.path
+from tkinter.filedialog import SaveFileDialog
 
+import joblib
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
 import pandas as pd
@@ -7,6 +9,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 
 PROCESSED_DATASET_PATH = "../data/processed/"
+SAVED_MODELS_PATH = "../models/"
 
 class ModelTrainer:
     model: LinearRegression
@@ -68,12 +71,21 @@ class ModelTrainer:
 
         return self.model
 
+    def save_model(self, path = SAVED_MODELS_PATH, filename="best_model.pk1"):
+        if not os.path.exists(path):
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            path = os.path.join(script_dir, path)
+        if not os.path.exists(path):
+            os.makedirs(path)
+        joblib.dump(self.model, os.path.join(path, filename))
+
 if __name__ == '__main__':
     trainer = ModelTrainer()
     trainer.load_datasets(PROCESSED_DATASET_PATH)
 
     print("\nLinear Regression: ")
     trainer.train_model(LinearRegression())
+    trainer.save_model(filename="LinearRegression.pkl")
     print("\nRandom Forest Regressor: (n_estimators=200, max_depth=10)")
     trainer.train_model(RandomForestRegressor(n_estimators=200, max_depth=10, random_state=42))
     print("\nGradient Boosting Regressor: (n_estimators=200, max_depth=10)")
