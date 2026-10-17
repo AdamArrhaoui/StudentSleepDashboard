@@ -1,5 +1,6 @@
 import os.path
 
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
@@ -30,11 +31,11 @@ class ModelTrainer:
             assert os.path.isfile(filename), f"Can't find file {filename}"
 
         self.training_data = pd.read_csv(training_path)
-        self.validation_data = pd.read_csv(training_path)
-        self.testing_data = pd.read_csv(training_path)
+        self.validation_data = pd.read_csv(validation_path)
+        self.testing_data = pd.read_csv(testing_path)
 
-    def train_model(self):
-        self.model = LinearRegression()
+    def train_model(self, model=LinearRegression()):
+        self.model = model
 
         X_train = self.training_data.drop(["cgpa"], axis=1)
         y_train = self.training_data["cgpa"]
@@ -48,7 +49,15 @@ class ModelTrainer:
         print("RMSE:", mean_squared_error(y_test, y_pred) ** 0.5)
         print("R2  :", r2_score(y_test, y_pred))
 
+        return self.model
+
 if __name__ == '__main__':
     trainer = ModelTrainer()
     trainer.load_datasets(PROCESSED_DATASET_PATH)
-    trainer.train_model()
+
+    print("\nLinear Regression: ")
+    trainer.train_model(LinearRegression())
+    print("\nRandom Forest Regressor: (n_estimators=200, max_depth=10)")
+    trainer.train_model(RandomForestRegressor(n_estimators=200, max_depth=10, random_state=42))
+    print("\nGradient Boosting Regressor: (n_estimators=200, max_depth=10)")
+    trainer.train_model(GradientBoostingRegressor(n_estimators=200, max_depth=10, random_state=42))
