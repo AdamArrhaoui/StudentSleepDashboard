@@ -1,5 +1,4 @@
 import os.path
-from tkinter.filedialog import SaveFileDialog
 
 import joblib
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
@@ -85,14 +84,14 @@ class ModelTrainer:
 if __name__ == '__main__':
     trainer = ModelTrainer()
     trainer.load_datasets(PROCESSED_DATASET_PATH)
-
     print("\nLinear Regression: ")
     trainer.train_model(LinearRegression())
-    trainer.save_model(filename="LinearRegression.pkl")
     print("\nRandom Forest Regressor: (n_estimators=200, max_depth=10)")
     trainer.train_model(RandomForestRegressor(n_estimators=200, max_depth=10, random_state=42))
     print("\nRandom Forest Regressor: (n_estimators=300, max_depth=5, min_samples_leaf=10, max_features='sqrt')")
     trainer.train_model(RandomForestRegressor(n_estimators=300, max_depth=5, min_samples_leaf=10, max_features='sqrt', random_state=42))
+    # Tuned RandomForestRegressor has the best performance, so we save that one
+    trainer.save_model(filename="best_model.pkl")
     print("\nGradient Boosting Regressor: (n_estimators=200, max_depth=10)")
     trainer.train_model(GradientBoostingRegressor(n_estimators=200, max_depth=10, random_state=42))
     print("\nGradient Boosting Regressor: (n_estimators=200, max_depth=2, min_samples_leaf=10, learning_rate=0.05)")
