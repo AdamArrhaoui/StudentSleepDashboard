@@ -79,15 +79,19 @@ class DataProcessor:
     """Loads, processes, and saves a dataset to be used for linear regression"""
     data: pd.DataFrame
     preprocessor: ColumnTransformer
+    splits: dict[str, pd.DataFrame]
 
     def __init__(self, path: str | None = RAW_DATA_PATH):
         # path=None skips loading raw data, for when you only want to transform rows with a saved preprocessor
         self.data = pd.DataFrame()
         self.splits = {}
-        self.preprocessor = self._build_preprocessor()  # unfitted until split_and_save_data
+        self.preprocessor = self._build_preprocessor()  # unfitted until split_and_save_data / load_preprocessor
         if path is not None:
             self.load_data_file(path)
 
+    # ----------------------------------------------------------------------------------
+    # Loading and inspecting
+    # ----------------------------------------------------------------------------------
     def load_data_file(self, path: str) -> Self:
         path = _resolve_path(path)
         if not os.path.exists(path):
@@ -109,6 +113,9 @@ class DataProcessor:
         print(f"\nNumber of rows with missing values: {df.isna().any(axis=1).sum()}")
         return self
 
+    # ----------------------------------------------------------------------------------
+    # Row-level cleaning (whole dataset only, never applied to a single prediction row)
+    # ----------------------------------------------------------------------------------
     def drop_columns(self, columns: list[str]) -> Self:
         self.data.drop(columns, axis=1, inplace=True)
         return self
@@ -140,11 +147,12 @@ class DataProcessor:
 
             is_outlier = zscores >= z_score_threshold
             keep_mask &= ~is_outlier
-        self.data = df[keep_mask]
+        self.data = df[keep_mask].copy()
         return self
 
-
-
+    # ----------------------------------------------------------------------------------
+    # Scaling and encoding
+    # ----------------------------------------------------------------------------------
     @staticmethod
     def _build_preprocessor() -> ColumnTransformer:
         """Builds the unfitted ColumnTransformer that scales and encodes the feature columns."""
@@ -235,10 +243,15 @@ class DataProcessor:
 
         return self.transform(df)
 
+    # ----------------------------------------------------------------------------------
+    # Splitting, saving, loading
+    # ----------------------------------------------------------------------------------
     def split_and_save_data(self, save_folder_path: str, train_frac: float = 0.70,
                 val_frac: float = 0.15,
                 test_frac: float = 0.15,
                 random_state: int = 42) -> Self:
+        """Splits the cleaned data, fits the preprocessor on the training split, and saves:
+        train.csv, validation.csv, test.csv (scaled/encoded features + raw cgpa) and preprocessor.joblib"""
         # make sure fractions add up to 1
         assert abs(train_frac + val_frac + test_frac - 1.0) < 1e-9, "Fractions must sum to 1"
         # ensure save folder paths
