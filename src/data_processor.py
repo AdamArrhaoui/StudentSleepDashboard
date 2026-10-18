@@ -154,17 +154,6 @@ class DataProcessor:
         self.data.drop_duplicates(inplace=True)
         return self
 
-    def scale_custom_ranges(self, column_scale_ranges: dict[str,tuple[int]]) -> Self:
-        """minmax scales columns with custom defined ranges.
-        column_scale_ranges is a dict of column names to scale ranges.
-        For example, passing in {"rating": [1,10], "age": [0,100]} will scale the rating column from 1-10, and the age column from 0-100
-        """
-        for column in column_scale_ranges.keys():
-            scaler = MinMaxScaler()
-            scaler.fit(pd.DataFrame({column:column_scale_ranges[column]}))
-            self.data[column] = scaler.transform(self.data[[column]])
-        return self
-
     def scale_minmax(self, columns: list[str]) -> Self:
         scaler = MinMaxScaler()
         self.data[columns] = scaler.fit_transform(self.data[columns])
@@ -178,6 +167,13 @@ class DataProcessor:
     def onehot_encode(self, columns: list[str]) -> Self:
         self.data = pd.get_dummies(self.data, columns=columns, dtype=int)
         return self
+
+    @staticmethod
+    def _scale_fixed_ranges(df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+        for col, (low, high) in FIXED_RANGES.items():
+            df[col] = (df[col] - low) / (high - low)
+        return df
 
 def run_processing_pipeline(input_file=RAW_DATA_PATH, output_folder=PROCESSED_DATA_PATH, verbose: bool = False):
      processor = DataProcessor(input_file)
@@ -197,7 +193,7 @@ def run_processing_pipeline(input_file=RAW_DATA_PATH, output_folder=PROCESSED_DA
      # we apply minmax scaler to columns with a well-defined min and max
      processor.scale_minmax(MINMAX_COLUMNS)
      # we apply custom minmax scaling ranges to columns with strict ranges (hours in a day/days in a week, 0-10 ratings, cgpa, etc)
-     processor.scale_custom_ranges(FIXED_RANGES)
+     processor._scale_fixed_ranges()
      # we apply one-hot encoding to categorical attributes
      processor.onehot_encode(CATEGORICAL_COLUMNS)
      if verbose:
