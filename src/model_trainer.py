@@ -42,7 +42,7 @@ class ModelTrainer:
         self.validation_data = pd.read_csv(validation_path)
         self.testing_data = pd.read_csv(testing_path)
 
-    def train_model(self, model=LinearRegression()):
+    def train_model(self, model=LinearRegression(), show_plot=False):
         self.model = model
 
         X_train = self.training_data.drop(["cgpa"], axis=1)
@@ -56,22 +56,22 @@ class ModelTrainer:
         print("MAE :", mean_absolute_error(y_test, y_pred))
         print("RMSE:", mean_squared_error(y_test, y_pred) ** 0.5)
         print("R2  :", r2_score(y_test, y_pred))
+        if show_plot:
+            # scatter plot of actual vs predicted
+            plt.figure(figsize=(6, 6))
+            plt.scatter(y_test, y_pred, alpha=0.6)
 
-        # scatter plot of actual vs predicted
-        plt.figure(figsize=(6, 6))
-        plt.scatter(y_test, y_pred, alpha=0.6)
+            # draw "perfect prediction" line
+            lowest = min(y_test.min(), y_pred.min())
+            highest = max(y_test.max(), y_pred.max())
+            plt.plot([lowest, highest], [lowest, highest], color="red", linestyle="--", label="Perfect prediction")
 
-        # draw "perfect prediction" line
-        lowest = min(y_test.min(), y_pred.min())
-        highest = max(y_test.max(), y_pred.max())
-        plt.plot([lowest, highest], [lowest, highest], color="red", linestyle="--", label="Perfect prediction")
-
-        plt.xlabel("Actual CGPA")
-        plt.ylabel("Predicted CGPA")
-        plt.title(f"Predicted vs Actual {self.model.__class__.__name__}")
-        plt.legend()
-        plt.tight_layout()
-        plt.show()
+            plt.xlabel("Actual CGPA")
+            plt.ylabel("Predicted CGPA")
+            plt.title(f"Predicted vs Actual {self.model.__class__.__name__}")
+            plt.legend()
+            plt.tight_layout()
+            plt.show()
 
         return self.model
 
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     print("\nRandom Forest Regressor: (n_estimators=200, max_depth=10)")
     trainer.train_model(RandomForestRegressor(n_estimators=200, max_depth=10, random_state=42))
     print("\nRandom Forest Regressor: (n_estimators=300, max_depth=5, min_samples_leaf=10, max_features='sqrt')")
-    trainer.train_model(RandomForestRegressor(n_estimators=300, max_depth=5, min_samples_leaf=10, max_features='sqrt', random_state=42))
+    trainer.train_model(RandomForestRegressor(n_estimators=300, max_depth=5, min_samples_leaf=10, max_features='sqrt', random_state=42), show_plot=True)
     # Tuned RandomForestRegressor has the best performance, so we save that one
     trainer.save_model(filename="best_model.pkl")
     print("\nGradient Boosting Regressor: (n_estimators=200, max_depth=10)")
