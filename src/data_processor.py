@@ -95,50 +95,6 @@ class DataProcessor:
         self.data = pd.read_csv(path)
         return self
 
-    def split_and_save_data(self, save_folder_path: str, train_frac: float = 0.70,
-                val_frac: float = 0.15,
-                test_frac: float = 0.15,
-                random_state: int = 42) -> Self:
-        # make sure fractions add up to 1
-        assert abs(train_frac + val_frac + test_frac - 1.0) < 1e-9, "Fractions must sum to 1"
-        # ensure save folder paths
-        save_folder_path = _resolve_path(save_folder_path)
-        if not os.path.exists(save_folder_path):
-            os.makedirs(save_folder_path)
-        # split off the training set. everything else goes into a temporary holdout
-        train_df, holdout_df = train_test_split(
-            self.data, train_size=train_frac, random_state=random_state, shuffle=True
-        )
-        # split the holdout into validation and test
-        # (the test share of the holdout is test_frac / (val_frac + test_frac), i.e. 0.5 for 15/15)
-        test_share = test_frac / (val_frac + test_frac)
-        val_df, test_df = train_test_split(
-            holdout_df, test_size=test_share, random_state=random_state
-        )
-        # fit on the TRAINING set only
-        self.preprocessor.fit(self._prepare_features(train_df))
-
-        # transform every split with the same fitted preprocessor, then save
-        self.splits = {}
-        for name, raw_df in {"train": train_df, "validation": val_df, "test": test_df}.items():
-            processed = self.transform(raw_df)
-            processed[TARGET] = raw_df[TARGET]  # target stays in its original units (0-4 GPA), unscaled
-            processed.to_csv(os.path.join(save_folder_path, f"{name}.csv"), index=False)
-            self.splits[name] = processed
-
-        # save the fitted preprocessor so single rows can be transformed later without the raw data
-        joblib.dump(self.preprocessor, os.path.join(save_folder_path, PREPROCESSOR_FILENAME))
-        print(f"Datasets and preprocessor have been saved to {os.path.abspath(save_folder_path)}")
-        return self
-
-    def load_preprocessor(self, folder_path: str) -> Self:
-        """Loads the fitted preprocessor that split_and_save_data() saved in that folder."""
-        path = os.path.join(_resolve_path(folder_path), PREPROCESSOR_FILENAME)
-        if not os.path.exists(path):
-            raise FileNotFoundError(f"No saved preprocessor at {path}. Run the processing pipeline first.")
-        self.preprocessor = joblib.load(path)
-        return self
-    
     def inspect_data(self, df: pd.DataFrame | None = None) -> Self:
         pd.set_option('display.max_columns', None)
         df = self.data if df is None else df
@@ -151,6 +107,14 @@ class DataProcessor:
         print("\nMissing values:")
         print(df.isna().sum())
         print(f"\nNumber of rows with missing values: {df.isna().any(axis=1).sum()}")
+        return self
+
+    def drop_columns(self, columns: list[str]) -> Self:
+        self.data.drop(columns, axis=1, inplace=True)
+        return self
+
+    def remove_duplicates(self) -> Self:
+        self.data.drop_duplicates(inplace=True)
         return self
 
     def handle_missing(self) -> Self:
@@ -179,13 +143,7 @@ class DataProcessor:
         self.data = df[keep_mask]
         return self
 
-    def drop_columns(self, columns: list[str]) -> Self:
-        self.data.drop(columns, axis=1, inplace=True)
-        return self
 
-    def remove_duplicates(self) -> Self:
-        self.data.drop_duplicates(inplace=True)
-        return self
 
     @staticmethod
     def _build_preprocessor() -> ColumnTransformer:
@@ -275,8 +233,51 @@ class DataProcessor:
             if not low <= value <= high:
                 raise ValueError(f"{col} must be between {low} and {high}, got {value}")
 
-        # an unknown category (e.g. a typo in chronotype) raises an error from OneHotEncoder
         return self.transform(df)
+
+    def split_and_save_data(self, save_folder_path: str, train_frac: float = 0.70,
+                val_frac: float = 0.15,
+                test_frac: float = 0.15,
+                random_state: int = 42) -> Self:
+        # make sure fractions add up to 1
+        assert abs(train_frac + val_frac + test_frac - 1.0) < 1e-9, "Fractions must sum to 1"
+        # ensure save folder paths
+        save_folder_path = _resolve_path(save_folder_path)
+        if not os.path.exists(save_folder_path):
+            os.makedirs(save_folder_path)
+        # split off the training set. everything else goes into a temporary holdout
+        train_df, holdout_df = train_test_split(
+            self.data, train_size=train_frac, random_state=random_state, shuffle=True
+        )
+        # split the holdout into validation and test
+        # (the test share of the holdout is test_frac / (val_frac + test_frac), i.e. 0.5 for 15/15)
+        test_share = test_frac / (val_frac + test_frac)
+        val_df, test_df = train_test_split(
+            holdout_df, test_size=test_share, random_state=random_state
+        )
+        # fit on the TRAINING set only
+        self.preprocessor.fit(self._prepare_features(train_df))
+
+        # transform every split with the same fitted preprocessor, then save
+        self.splits = {}
+        for name, raw_df in {"train": train_df, "validation": val_df, "test": test_df}.items():
+            processed = self.transform(raw_df)
+            processed[TARGET] = raw_df[TARGET]  # target stays in its original units (0-4 GPA), unscaled
+            processed.to_csv(os.path.join(save_folder_path, f"{name}.csv"), index=False)
+            self.splits[name] = processed
+
+        # save the fitted preprocessor so single rows can be transformed later without the raw data
+        joblib.dump(self.preprocessor, os.path.join(save_folder_path, PREPROCESSOR_FILENAME))
+        print(f"Datasets and preprocessor have been saved to {os.path.abspath(save_folder_path)}")
+        return self
+
+    def load_preprocessor(self, folder_path: str) -> Self:
+        """Loads the fitted preprocessor that split_and_save_data() saved in that folder."""
+        path = os.path.join(_resolve_path(folder_path), PREPROCESSOR_FILENAME)
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"No saved preprocessor at {path}. Run the processing pipeline first.")
+        self.preprocessor = joblib.load(path)
+        return self
 
 def run_processing_pipeline(input_file=RAW_DATA_PATH, output_folder=PROCESSED_DATA_PATH, verbose: bool = False):
     processor = DataProcessor(input_file)
@@ -290,6 +291,7 @@ def run_processing_pipeline(input_file=RAW_DATA_PATH, output_folder=PROCESSED_DA
     # we drop rows with missing values because there are not that many of them
     processor.handle_missing()
     # bedtimes after midnight are stored as 0.5 rather than 24.5, which splits late sleepers across both ends of the
+    # scale. we shift them past midnight before removing outliers.
     processor.unwrap_bedtime()
     # we remove rows with extreme outlier values that are over 3 standard deviations away from the mean value
     processor.remove_outliers(3.0)
