@@ -131,6 +131,14 @@ class DataProcessor:
         print(f"Datasets and preprocessor have been saved to {os.path.abspath(save_folder_path)}")
         return self
 
+    def load_preprocessor(self, folder_path: str) -> Self:
+        """Loads the fitted preprocessor that split_and_save_data() saved in that folder."""
+        path = os.path.join(_resolve_path(folder_path), PREPROCESSOR_FILENAME)
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"No saved preprocessor at {path}. Run the processing pipeline first.")
+        self.preprocessor = joblib.load(path)
+        return self
+    
     def inspect_data(self, df: pd.DataFrame | None = None) -> Self:
         pd.set_option('display.max_columns', None)
         df = self.data if df is None else df
