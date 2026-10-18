@@ -111,9 +111,9 @@ class DataProcessor:
         print(f"Datasets have been saved to {os.path.abspath(save_folder_path)}")
         return self
 
-    def inspect_data(self) -> Self:
+    def inspect_data(self, df: pd.DataFrame | None = None) -> Self:
         pd.set_option('display.max_columns', None)
-        df = self.data
+        df = self.data if df is None else df
         print(f"Data loaded:")
         print(df.head())
         print(f"\nData shape {df.shape}")
