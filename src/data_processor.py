@@ -63,6 +63,13 @@ CATEGORICAL_COLUMNS = [
 NUMERIC_COLUMNS = STANDARD_COLUMNS + MINMAX_COLUMNS + list(FIXED_RANGES)
 FEATURE_COLUMNS = NUMERIC_COLUMNS + CATEGORICAL_COLUMNS
 
+def _resolve_path(path: str) -> str:
+    """Use the path as given if it exists, otherwise treat it as relative to this script's folder."""
+    if os.path.exists(path):
+        return path
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(script_dir, path)
+
 class DataProcessor:
     """Loads, processes, and saves a dataset to be used for linear regression"""
     data: pd.DataFrame
@@ -71,11 +78,9 @@ class DataProcessor:
         self.load_data_file(path)
 
     def load_data_file(self, path: str) -> Self:
+        path = _resolve_path(path)
         if not os.path.exists(path):
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            path = os.path.join(script_dir, path)
-            if not os.path.exists(path):
-                raise FileNotFoundError(f"Path {path} does not exist!")
+            raise FileNotFoundError(f"Path {path} does not exist!")
         self.data = pd.read_csv(path)
         return self
 
@@ -86,9 +91,7 @@ class DataProcessor:
         # make sure fractions add up to 1
         assert abs(train_frac + val_frac + test_frac - 1.0) < 1e-9, "Fractions must sum to 1"
         # ensure save folder paths
-        if not os.path.exists(save_folder_path):
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            save_folder_path = os.path.join(script_dir, save_folder_path)
+        save_folder_path = _resolve_path(save_folder_path)
         if not os.path.exists(save_folder_path):
             os.makedirs(save_folder_path)
         # split off the training set. everything else goes into a temporary holdout

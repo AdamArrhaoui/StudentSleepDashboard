@@ -11,6 +11,13 @@ import matplotlib.pyplot as plt
 PROCESSED_DATASET_PATH = "../data/processed/"
 SAVED_MODELS_PATH = "../models/"
 
+def _resolve_path(path: str) -> str:
+    """Use the path as given if it exists, otherwise treat it as relative to this script's folder."""
+    if os.path.exists(path):
+        return path
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(script_dir, path)
+
 class ModelTrainer:
     model: LinearRegression
     training_data: pd.DataFrame
@@ -21,11 +28,9 @@ class ModelTrainer:
         self.model = LinearRegression()
 
     def load_datasets(self, folder_path: str):
+        folder_path = _resolve_path(folder_path)
         if not os.path.exists(folder_path):
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            folder_path = os.path.join(script_dir, folder_path)
-            if not os.path.exists(folder_path):
-                raise FileNotFoundError(f"Path {folder_path} does not exist!")
+            raise FileNotFoundError(f"Path {folder_path} does not exist!")
 
         training_path = os.path.join(folder_path, "train.csv")
         validation_path = os.path.join(folder_path, "test.csv")
@@ -72,9 +77,7 @@ class ModelTrainer:
         return self.model
 
     def save_model(self, path = SAVED_MODELS_PATH, filename="best_model.pk1"):
-        if not os.path.exists(path):
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            path = os.path.join(script_dir, path)
+        path = _resolve_path(path)
         if not os.path.exists(path):
             os.makedirs(path)
         joblib.dump(self.model, os.path.join(path, filename))
