@@ -1,14 +1,19 @@
 from typing import Self
 
+import joblib
 import pandas as pd
 import numpy as np
 import os
 from scipy import stats
+from sklearn.compose import ColumnTransformer
+from sklearn.exceptions import NotFittedError
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, OneHotEncoder
+from sklearn.utils.validation import check_is_fitted
 
 RAW_DATA_PATH = "../data/raw/student_sleep_screen_time_academic_performance.csv"
 PROCESSED_DATA_PATH = "../data/processed/"
+PREPROCESSOR_FILENAME = "preprocessor.joblib"
 
 # --------------------------------------------------------------------------------------
 # Column config
@@ -73,9 +78,15 @@ def _resolve_path(path: str) -> str:
 class DataProcessor:
     """Loads, processes, and saves a dataset to be used for linear regression"""
     data: pd.DataFrame
+    preprocessor: ColumnTransformer
 
-    def __init__(self, path=RAW_DATA_PATH):
-        self.load_data_file(path)
+    def __init__(self, path: str | None = RAW_DATA_PATH):
+        # path=None skips loading raw data, for when you only want to transform rows with a saved preprocessor
+        self.data = pd.DataFrame()
+        self.splits = {}
+        self.preprocessor = self._build_preprocessor()  # unfitted until split_and_save_data
+        if path is not None:
+            self.load_data_file(path)
 
     def load_data_file(self, path: str) -> Self:
         path = _resolve_path(path)
@@ -104,11 +115,20 @@ class DataProcessor:
         val_df, test_df = train_test_split(
             holdout_df, test_size=test_share, random_state=random_state
         )
-        # save datasets
-        train_df.to_csv(os.path.join(save_folder_path, "train.csv"), index=False)
-        val_df.to_csv(os.path.join(save_folder_path, "validation.csv"), index=False)
-        test_df.to_csv(os.path.join(save_folder_path, "test.csv"), index=False)
-        print(f"Datasets have been saved to {os.path.abspath(save_folder_path)}")
+        # fit on the TRAINING set only
+        self.preprocessor.fit(self._prepare_features(train_df))
+
+        # transform every split with the same fitted preprocessor, then save
+        self.splits = {}
+        for name, raw_df in {"train": train_df, "validation": val_df, "test": test_df}.items():
+            processed = self.transform(raw_df)
+            processed[TARGET] = raw_df[TARGET]  # target stays in its original units (0-4 GPA), unscaled
+            processed.to_csv(os.path.join(save_folder_path, f"{name}.csv"), index=False)
+            self.splits[name] = processed
+
+        # save the fitted preprocessor so single rows can be transformed later without the raw data
+        joblib.dump(self.preprocessor, os.path.join(save_folder_path, PREPROCESSOR_FILENAME))
+        print(f"Datasets and preprocessor have been saved to {os.path.abspath(save_folder_path)}")
         return self
 
     def inspect_data(self, df: pd.DataFrame | None = None) -> Self:
@@ -130,6 +150,11 @@ class DataProcessor:
         # Only 44/500 rows had missing values, so it's better to just drop them
         # than to try to extrapolate missing data which could lead to inaccuracy
         self.data.dropna(inplace=True)
+        return self
+
+    def unwrap_bedtime(self) -> Self:
+        # Run this BEFORE remove_outliers
+        self.data = self._unwrap_bedtime(self.data)
         return self
 
     def remove_outliers(self, z_score_threshold: float = 3.0) -> Self:
@@ -154,52 +179,118 @@ class DataProcessor:
         self.data.drop_duplicates(inplace=True)
         return self
 
-    def scale_minmax(self, columns: list[str]) -> Self:
-        scaler = MinMaxScaler()
-        self.data[columns] = scaler.fit_transform(self.data[columns])
-        return self
+    @staticmethod
+    def _build_preprocessor() -> ColumnTransformer:
+        """Builds the unfitted ColumnTransformer that scales and encodes the feature columns."""
+        preprocessor = ColumnTransformer(
+            transformers=[
+                ("standard", StandardScaler(), STANDARD_COLUMNS),
+                ("minmax", MinMaxScaler(), MINMAX_COLUMNS),
+                # these were already scaled by _scale_fixed_ranges, so they just pass through
+                ("fixed_range", "passthrough", list(FIXED_RANGES)),
+                ("onehot", OneHotEncoder(drop="first", sparse_output=False, dtype=int), CATEGORICAL_COLUMNS),
+            ],
+            remainder="drop",
+            verbose_feature_names_out=False,
+        )
+        preprocessor.set_output(transform="pandas")
+        return preprocessor
 
-    def scale_standard(self, columns: list[str]) -> Self:
-        scaler = StandardScaler()
-        self.data[columns] = scaler.fit_transform(self.data[columns])
-        return self
+    @staticmethod
+    def _select_features(df: pd.DataFrame) -> pd.DataFrame:
+        """Drops id/gender/target if present, checks that every needed column exists, and fixes column order."""
+        df = df.drop(columns=DROP_COLUMNS + [TARGET], errors="ignore")
+        missing = [col for col in FEATURE_COLUMNS if col not in df.columns]
+        if missing:
+            raise ValueError(f"Input is missing required columns: {missing}")
+        return df[FEATURE_COLUMNS].copy()
 
-    def onehot_encode(self, columns: list[str]) -> Self:
-        self.data = pd.get_dummies(self.data, columns=columns, dtype=int)
-        return self
+    @staticmethod
+    def _unwrap_bedtime(df: pd.DataFrame) -> pd.DataFrame:
+        """Shifts bedtimes after midnight past 24 (0.5 -> 24.5) so late bedtimes sit next to 23.5, not far from it."""
+        df = df.copy()
+        hours = df[BEDTIME_COLUMN]
+        df[BEDTIME_COLUMN] = hours.where(hours >= BEDTIME_DAY_START, hours + 24)
+        return df
+
+    @classmethod
+    def _prepare_features(cls, df: pd.DataFrame) -> pd.DataFrame:
+        """Everything that happens to raw rows before the ColumnTransformer."""
+        return cls._scale_fixed_ranges(cls._unwrap_bedtime(cls._select_features(df)))
 
     @staticmethod
     def _scale_fixed_ranges(df: pd.DataFrame) -> pd.DataFrame:
+        """Scales the columns that have known bounds"""
         df = df.copy()
         for col, (low, high) in FIXED_RANGES.items():
             df[col] = (df[col] - low) / (high - low)
         return df
 
+    def _require_fitted(self) -> None:
+        try:
+            check_is_fitted(self.preprocessor)
+        except NotFittedError as e:
+            raise RuntimeError(
+                "The preprocessor is not fitted yet. Call split_and_save_data() first."
+            ) from e
+
+    def transform(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Turns raw rows into model-ready features using the fitted preprocessor.
+        The target column is not included in the output."""
+        self._require_fitted()
+        return self.preprocessor.transform(self._prepare_features(df))
+
+    def transform_row(self, row: dict | pd.Series | pd.DataFrame) -> pd.DataFrame:
+        """Turns ONE raw row into a one-row DataFrame of model-ready features.
+
+        The row needs a value for every feature column, keyed by column name. student_id, gender and cgpa are
+        ignored if present, so a full row from the raw dataset can be passed in as is.
+        """
+        if isinstance(row, dict):
+            df = pd.DataFrame([row])
+        elif isinstance(row, pd.Series):
+            df = row.to_frame().T
+        else:
+            df = row.copy()
+        if len(df) != 1:
+            raise ValueError(f"Expected exactly one row, got {len(df)}")
+
+        df = self._select_features(df)
+
+        # validate the input
+        df[NUMERIC_COLUMNS] = df[NUMERIC_COLUMNS].apply(pd.to_numeric)  # raises if a number is given as text
+        columns_with_nan = df.columns[df.isna().any()].tolist()
+        if columns_with_nan:
+            raise ValueError(f"Missing values are not allowed, found them in: {columns_with_nan}")
+        for col, (low, high) in FIXED_RANGES.items():
+            value = df[col].iloc[0]
+            if not low <= value <= high:
+                raise ValueError(f"{col} must be between {low} and {high}, got {value}")
+
+        # an unknown category (e.g. a typo in chronotype) raises an error from OneHotEncoder
+        return self.transform(df)
+
 def run_processing_pipeline(input_file=RAW_DATA_PATH, output_folder=PROCESSED_DATA_PATH, verbose: bool = False):
-     processor = DataProcessor(input_file)
-     if verbose:
+    processor = DataProcessor(input_file)
+    if verbose:
         print("###### PRE-PROCESSED DATA ######")
         processor.inspect_data()
-     # we don't need the student id column, and gender column should be avoided to remove a potential source of bias
-     processor.drop_columns(DROP_COLUMNS)
-     # now that student_id is gone, we can remove the duplicate values
-     processor.remove_duplicates()
-     # we drop rows with missing values because there are not that many of them
-     processor.handle_missing()
-     # we remove columns with extreme outliers values that are over 3 standard deviations away from the mean value
-     processor.remove_outliers(3.0)
-     # we apply standard scaler to columns that don't have a pre-defined minimum and/or maximum value
-     processor.scale_standard(STANDARD_COLUMNS)
-     # we apply minmax scaler to columns with a well-defined min and max
-     processor.scale_minmax(MINMAX_COLUMNS)
-     # we apply custom minmax scaling ranges to columns with strict ranges (hours in a day/days in a week, 0-10 ratings, cgpa, etc)
-     processor._scale_fixed_ranges()
-     # we apply one-hot encoding to categorical attributes
-     processor.onehot_encode(CATEGORICAL_COLUMNS)
-     if verbose:
-        print("######   PROCESSED DATA   ######")
-        processor.inspect_data()
-     processor.split_and_save_data(output_folder)
+    # we don't need the student id column, and gender column should be avoided to remove a potential source of bias
+    processor.drop_columns(DROP_COLUMNS)
+    # now that student_id is gone, we can remove the duplicate values
+    processor.remove_duplicates()
+    # we drop rows with missing values because there are not that many of them
+    processor.handle_missing()
+    # bedtimes after midnight are stored as 0.5 rather than 24.5, which splits late sleepers across both ends of the
+    processor.unwrap_bedtime()
+    # we remove rows with extreme outlier values that are over 3 standard deviations away from the mean value
+    processor.remove_outliers(3.0)
+    processor.split_and_save_data(output_folder)
+    if verbose:
+        print("######   PROCESSED DATA (training split)   ######")
+        processor.inspect_data(processor.splits["train"])
+    return processor
+
 
 if __name__ == '__main__':
     run_processing_pipeline(RAW_DATA_PATH, PROCESSED_DATA_PATH, verbose=True)
