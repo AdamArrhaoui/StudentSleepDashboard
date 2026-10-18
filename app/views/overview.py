@@ -101,6 +101,7 @@ tab_preview, tab_stats, tab_quality, tab_target = st.tabs(
     ]
 )
 
+# NOTE: "with" is used as a local context manager, so that all the Streamlit commands inside it are applied to the tab. This allows for a clean and organized layout, with each tab containing its own set of components and visualizations.
 
 # With tab_preview: display the cleaned dataset preview, allowing users to select the number of rows to show and providing a column guide for better understanding of the data.
 # Section header: "Cleaned data" - indicates that the following content relates to the cleaned dataset.
