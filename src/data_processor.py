@@ -10,6 +10,59 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler
 RAW_DATA_PATH = "../data/raw/student_sleep_screen_time_academic_performance.csv"
 PROCESSED_DATA_PATH = "../data/processed/"
 
+# --------------------------------------------------------------------------------------
+# Column config
+# --------------------------------------------------------------------------------------
+TARGET = "cgpa"
+
+# we don't need the student id column, and gender column should be avoided to remove a potential source of bias
+DROP_COLUMNS = ["student_id", "gender"]
+
+# columns without a pre-defined minimum and/or maximum -> StandardScaler (mean/std learned from the training set)
+STANDARD_COLUMNS = [
+    "age",
+    "year_of_study",
+    "weekend_sleep_delta_hours",
+    "pre_sleep_screen_time_min",
+    "caffeine_drinks_per_day",
+    "naps_per_week",
+    "weekly_study_hours",
+]
+
+# bedtime is a clock hour, so a bedtime after midnight is stored as e.g. 0.5, which lands at the opposite end of the
+# scale from 23.5 even though the two are an hour apart. Hours before BEDTIME_DAY_START are shifted past midnight
+# (+24) so the clock reads continuously: 23.5 -> 23.5, 0.5 -> 24.5.
+BEDTIME_COLUMN = "avg_bedtime_hour"
+BEDTIME_DAY_START = 12
+
+# columns scaled with MinMaxScaler (min/max learned from the training set). bedtime is unwrapped first (see above)
+MINMAX_COLUMNS = [BEDTIME_COLUMN]
+
+# columns with strict, known ranges (hours in a day, days in a week, 0-10 ratings, etc)
+FIXED_RANGES = {
+    "avg_sleep_hours_weekday": (0, 24),
+    "daily_screen_time_hours": (0, 24),
+    "sleep_quality_score": (0, 10),
+    "exercise_days_per_week": (0, 7),
+    "energy_level": (0, 10),
+    "concentration_difficulty": (0, 10),
+    "class_attendance_percent": (0, 100),
+}
+
+# categorical columns are one-hot encoded
+CATEGORICAL_COLUMNS = [
+    "major_category",
+    "residence_type",
+    "chronotype",
+    "primary_device",
+    "device_free_before_bed",
+    "has_part_time_job",
+    "semester_type",
+]
+
+NUMERIC_COLUMNS = STANDARD_COLUMNS + MINMAX_COLUMNS + list(FIXED_RANGES)
+FEATURE_COLUMNS = NUMERIC_COLUMNS + CATEGORICAL_COLUMNS
+
 class DataProcessor:
     """Loads, processes, and saves a dataset to be used for linear regression"""
     data: pd.DataFrame
@@ -98,7 +151,7 @@ class DataProcessor:
         self.data.drop_duplicates(inplace=True)
         return self
 
-    def scale_custom_ranges(self, column_scale_ranges: dict[str,list[int]]) -> Self:
+    def scale_custom_ranges(self, column_scale_ranges: dict[str,tuple[int]]) -> Self:
         """minmax scales columns with custom defined ranges.
         column_scale_ranges is a dict of column names to scale ranges.
         For example, passing in {"rating": [1,10], "age": [0,100]} will scale the rating column from 1-10, and the age column from 0-100
@@ -129,7 +182,7 @@ def run_processing_pipeline(input_file=RAW_DATA_PATH, output_folder=PROCESSED_DA
         print("###### PRE-PROCESSED DATA ######")
         processor.inspect_data()
      # we don't need the student id column, and gender column should be avoided to remove a potential source of bias
-     processor.drop_columns(["student_id", "gender"])
+     processor.drop_columns(DROP_COLUMNS)
      # now that student_id is gone, we can remove the duplicate values
      processor.remove_duplicates()
      # we drop rows with missing values because there are not that many of them
@@ -137,22 +190,13 @@ def run_processing_pipeline(input_file=RAW_DATA_PATH, output_folder=PROCESSED_DA
      # we remove columns with extreme outliers values that are over 3 standard deviations away from the mean value
      processor.remove_outliers(3.0)
      # we apply standard scaler to columns that don't have a pre-defined minimum and/or maximum value
-     processor.scale_standard(["age", "year_of_study", "weekend_sleep_delta_hours", "pre_sleep_screen_time_min", "caffeine_drinks_per_day", "naps_per_week", "weekly_study_hours"])
+     processor.scale_standard(STANDARD_COLUMNS)
      # we apply minmax scaler to columns with a well-defined min and max
-     processor.scale_minmax(["avg_bedtime_hour"])
+     processor.scale_minmax(MINMAX_COLUMNS)
      # we apply custom minmax scaling ranges to columns with strict ranges (hours in a day/days in a week, 0-10 ratings, cgpa, etc)
-     processor.scale_custom_ranges({
-         "avg_sleep_hours_weekday": [0,24],
-         "daily_screen_time_hours": [0,24],
-         "sleep_quality_score": [0,10],
-         "exercise_days_per_week": [0,7],
-         "energy_level": [0,10],
-         "concentration_difficulty": [0,10],
-         "class_attendance_percent": [0,100],
-         "cgpa": [0,4]
-     })
+     processor.scale_custom_ranges(FIXED_RANGES)
      # we apply one-hot encoding to categorical attributes
-     processor.onehot_encode(["major_category", "residence_type", "chronotype", "primary_device", "device_free_before_bed", "has_part_time_job", "semester_type"])
+     processor.onehot_encode(CATEGORICAL_COLUMNS)
      if verbose:
         print("######   PROCESSED DATA   ######")
         processor.inspect_data()
