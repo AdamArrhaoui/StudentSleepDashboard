@@ -156,13 +156,24 @@ with result_col:
     # One row with the same columns, in the same order, as the training data.
     # The Predictor applies the same scaling and one-hot encoding used in training.
     features = pd.DataFrame([values])[feature_cols]
-    predicted = float(min(max(predictor.predict(features)[0], 0.0), 4.0))  # keep it on the 0-4 scale
+    # Try to predict; the Predictor checks the input and raises ValueError if a value is invalid
+    try:
+        # Raw prediction for our one student (the model returns one value per row)
+        raw_prediction = predictor.predict(features)[0]
+    # If the input was rejected, show the reason instead of crashing the page
+    except ValueError as error:
+        # Display the Predictor's message as an error box
+        st.error(f"Couldn't make a prediction: {error}", icon=":material/error:")
+        # Stop the rest of the page from running
+        st.stop()
+    # Keep the prediction on the 0-4 CGPA scale
+    predicted = float(min(max(raw_prediction, 0.0), 4.0))
 
     # Average is the target's mean
     average = df[TARGET].mean()
     # For the predicted cgpa contianer
     with st.container(border=True):
-        # Streamlit metric 
+        # Streamlit metric for displays
         st.metric(
             "Predicted CGPA",
             f"{predicted:.2f} / 4.0",
@@ -180,7 +191,7 @@ with result_col:
         df, x=TARGET, nbins=25, title="Where this prediction falls",
         labels={TARGET: "CGPA (0-4 scale)"},
     )
-    # add a vline to fig
+    # add a vline to fig 
     fig.add_vline(x=predicted, line_width=3, line_dash="dash", line_color="#F1DAC4",
                   annotation_text="Prediction", annotation_position="top")
     # Update the layout for the yaxis
@@ -192,8 +203,14 @@ with result_col:
     metrics = load_metrics()
     # If metrics is not none
     if metrics is not None:
-        # Define typical error as the minimum of metrics["mae"]
-        typical_error = metrics["mae"].min()
+        # Use the MAE of the model the dashboard uses (selected = True), not just the smallest MAE
+        if "selected" in metrics.columns and metrics["selected"].any():
+            # Define typical error as the selected model's mean absolute error
+            typical_error = metrics.loc[metrics["selected"], "mae"].iloc[0]
+        # Older metrics files have no selected column
+        else:
+            # Fall back to the smallest MAE in the table
+            typical_error = metrics["mae"].min()
         # Caption the error message using 'fstrings'
         st.caption(f"On unseen students, predictions are typically off by about "
                    f"±{typical_error:.2f} CGPA points.")
