@@ -1,4 +1,10 @@
-from typing import Self
+# Python 3.10 compatibility: typing.Self only exists in Python 3.11 and newer.
+# Our conda environment and the Docker image (python:3.10-slim) use Python 3.10,
+# so we fall back to the typing_extensions package, which provides the same Self.
+try:
+    from typing import Self  # Python 3.11+
+except ImportError:
+    from typing_extensions import Self  # Python 3.10 (our environment and Docker image)
 
 import joblib
 import pandas as pd
