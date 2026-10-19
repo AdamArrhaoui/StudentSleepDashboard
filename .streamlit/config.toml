@@ -1,0 +1,24 @@
+# Dashboard theme: a dark "night" look built from our 5-colour palette.
+# Theme drafted with help from Claude (Anthropic).
+# Colours taken from free website palette generator 'COOLERS'
+
+[theme]
+base = "dark"
+backgroundColor = "#2A2B2A"           # charcoal: main page background
+secondaryBackgroundColor = "#363836"  # slightly lighter charcoal: sidebar, inputs, cards
+textColor = "#F1DAC4"                 # cream text on charcoal: 10.5:1 contrast
+primaryColor = "#69A2B0"              # teal accent on charcoal: 5.0:1 contrast
+borderColor = "#4A4C4A"               # subtle borders around cards and tables
+
+# Named colours used by header dividers and coloured text, e.g. st.header(..., divider="blue")
+blueColor = "#69A2B0"
+greenColor = "#659157"
+orangeColor = "#955E42"
+
+# Rounded, friendly font from Google Fonts, with a plain fallback
+font = "Nunito:https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap, sans-serif"
+baseRadius = "medium"
+
+# Colours used by charts, in order. The brown is lightened (#BE7D59) because
+# the original #955E42 is too dark to see on the charcoal background (2.7:1).
+chartCategoricalColors = ["#69A2B0", "#659157", "#F1DAC4", "#BE7D59"]
