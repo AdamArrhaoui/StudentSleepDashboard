@@ -25,6 +25,8 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+from src.predictor import Predictor
+
 # Define the project root directory and the models directory where trained model results are stored. The project root is determined by resolving the parent directory of the current file, and the models directory is a subdirectory named "models" within the project root.
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -76,14 +78,7 @@ def load_loss_history() -> pd.DataFrame | None:
 @st.cache_resource  # "resource": one shared model object, not copied like data
 def load_predictor():
     """Return (predictor, None) when the model is ready, or (None, reason) when it isn't."""
-    # Try to import the Predictor class from src/predictor.py. If the import fails, return None and a message indicating that the Predictor class is not defined yet. If the import succeeds, attempt to create an instance of the Predictor class. If a FileNotFoundError occurs (indicating that the model files haven't been saved yet), return None and a message explaining the issue. Otherwise, return the Predictor instance and None to indicate that the model is ready for use.
-    try:
-        # Import the Predictor class from src/predictor.py. This class is expected to provide a predict method that takes a DataFrame of features and returns an array of predicted CGPA values (0-4 scale).
-        from src.predictor import Predictor
-        # If the import fails, return None and a message indicating that the Predictor class is not defined yet.
-    except ImportError:
-        return None, "src/predictor.py doesn't define a `Predictor` class yet."
-    # If the import succeeds, attempt to create an instance of the Predictor class. If a FileNotFoundError occurs (indicating that the model files haven't been saved yet), return None and a message explaining the issue. Otherwise, return the Predictor instance and None to indicate that the model is ready for use.
+    # Attempt to create an instance of the Predictor class. If a FileNotFoundError occurs (indicating that the model files haven't been saved yet), return None and a message explaining the issue. Otherwise, return the Predictor instance and None to indicate that the model is ready for use.
     try:
         # Create an instance of the Predictor class. This instance will be used to make predictions on new data using the trained model.
         return Predictor(), None
