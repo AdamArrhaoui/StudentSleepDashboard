@@ -1,0 +1,11 @@
+.git
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+notebooks/
+.venv/
+.env
+.idea/
+.vscode/
+.claude/
+requirementsone.txt

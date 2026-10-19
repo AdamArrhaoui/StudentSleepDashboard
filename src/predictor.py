@@ -3,11 +3,11 @@ import os
 import joblib
 import pandas as pd
 
-from data_processor import DataProcessor
-from model_trainer import ModelTrainer
+from src.data_processor import DataProcessor
+from src.model_trainer import ModelTrainer
 
 TRAINED_MODEL_PATH = "../models/best_model.pkl"
-PREPROCESSOR_DATA_PATH = "../data/"
+PREPROCESSOR_DATA_PATH = "../data/processed"
 PREPROCESSOR_FILENAME = "preprocessor.joblib"
 
 def _resolve_path(path: str) -> str:

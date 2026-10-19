@@ -12,9 +12,9 @@ import plotly.express as px
 import streamlit as st
 
 # Import the custom components we have described
-from components import page_header, section_header
-from data_loading import COLUMN_DESCRIPTIONS, TARGET, friendly_name, load_clean_data
-from model_loading import load_metrics, load_predictor
+from app.components import page_header, section_header
+from app.data_loading import COLUMN_DESCRIPTIONS, TARGET, friendly_name, load_clean_data
+from app.model_loading import load_metrics, load_predictor
 
 # CONSTANT
 CARD_HEIGHT = 580
