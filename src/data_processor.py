@@ -290,11 +290,11 @@ class DataProcessor:
         print(f"Datasets and preprocessor have been saved to {os.path.abspath(save_folder_path)}")
         return self
 
-    def load_preprocessor(self, folder_path: str) -> Self:
+    def load_preprocessor(self, folder_path: str = PROCESSED_DATA_PATH, file_name: str = PREPROCESSOR_FILENAME) -> Self:
         """Loads the fitted preprocessor that split_and_save_data() saved in that folder."""
-        path = os.path.join(_resolve_path(folder_path), PREPROCESSOR_FILENAME)
+        path = os.path.join(_resolve_path(folder_path), file_name)
         if not os.path.exists(path):
-            raise FileNotFoundError(f"No saved preprocessor at {path}. Run the processing pipeline first.")
+            raise FileNotFoundError(f"No saved preprocessor named {file_name} was found at {path}. Run the processing pipeline first.")
         self.preprocessor = joblib.load(path)
         return self
 
