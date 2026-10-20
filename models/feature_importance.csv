@@ -1,0 +1,33 @@
+feature,importance
+age,0.01239283053617775
+year_of_study,0.012487341853343967
+weekend_sleep_delta_hours,0.03705564047231611
+pre_sleep_screen_time_min,0.08755419958803268
+caffeine_drinks_per_day,0.015575656458030203
+naps_per_week,0.01695151860809322
+weekly_study_hours,0.15259892864842808
+avg_bedtime_hour,0.03271715758719443
+avg_sleep_hours_weekday,0.16824628327546873
+daily_screen_time_hours,0.0390546542078939
+sleep_quality_score,0.1615280981424921
+exercise_days_per_week,0.02743592764340061
+energy_level,0.038203610119218225
+concentration_difficulty,0.03027633849344077
+class_attendance_percent,0.09886177845994283
+major_category_Business,0.001584434367638889
+major_category_Health Sciences,0.003450024295799319
+major_category_Humanities,0.0011340673873123505
+major_category_Law,0.0
+major_category_STEM,0.004839330316274245
+major_category_Social Sciences,0.0017502776200092713
+residence_type_Homestay,0.0
+residence_type_Off-campus Apartment,0.0028204879803837087
+residence_type_With Family,0.003058063062495897
+chronotype_Intermediate,0.004780595161219024
+chronotype_Night Owl,0.01496347031639221
+primary_device_Smartphone,0.004898871149697197
+primary_device_Tablet,0.00021445566331572643
+device_free_before_bed_Yes,0.00688184239296948
+has_part_time_job_Yes,0.0027193422230894506
+semester_type_Spring,0.014515049042633137
+semester_type_Summer,0.0014497249272964123

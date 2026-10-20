@@ -41,8 +41,15 @@ if metrics is None or predictions is None:
     # Stop the execution of the Streamlit app to prevent further processing and rendering of the page. This ensures that users are not presented with incomplete or missing data, and they are informed about the current state of the model results.
     st.stop()
 
-# The best model is the one with the lowest RMSE (smallest typical error)
-best = metrics.loc[metrics["rmse"].idxmin()]
+# Best is the model the dashboard actually uses: evaluate_model.py marks it with selected = True,
+# because it was chosen on the validation set and saved as models/best_model.pkl
+if "selected" in metrics.columns and metrics["selected"].any():
+    # Pick the first (and only) row where selected is True
+    best = metrics[metrics["selected"]].iloc[0]
+# Older metrics files have no selected column
+else:
+    # Fall back to the model with the lowest RMSE (smallest typical error)
+    best = metrics.loc[metrics["rmse"].idxmin()]
 
 # Best model at a glance
 # Use st.markdown to display the best model's name and configuration in bold format. This provides users with a quick overview of the top-performing model based on the lowest RMSE value, allowing them to easily identify which model is currently considered the best for predicting CGPA.
